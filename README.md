@@ -38,7 +38,7 @@ usage restrictions.
 |:-----:|:-------------:|:------------:|:-------------:|:---------------:|
 |**Reset previous query**|`false`| `true` |`true`   |`true`|
 |**Basic query**| `{orderByKey: true}`| `{limitTo(First/Last): number, orderByChild: field}` | `{orderByKey: true}` |`orderByChild: field`|
-|**Priority**| 1 | 0 | 0 | 2 |
+|**Priority**| medium | low | low | high |
 
 ## Events details: 
 - **InfiniteScroll:**
@@ -80,6 +80,19 @@ usage restrictions.
     - `@Input filterBySelect` is passed in;
    
    Resets other queries.
+   
+## Usage tips:
+ 
+- To improve firebase query performance use `.indexOn` [rule](https://firebase.google.com/docs/database/security/indexing-data)
+in your database rules.
+- The selector of `TableItemComponent` that you pass inside `SortableTableComponent` must be attributive in
+order to be properly displayed. Example: `tr [sortableTableItem]`.
+- To sort your headers use `PriorityKeysPipe` and pass **enum** with a list of headers as an argument and the list 
+of headers you'd prefer not to show.
+- Always bind `setHeaders` function to your container component context [(see basic usage)]((./docs/basic_usage.md)) if you
+use `this` keyword in this function.
+As child component doesn't not know who his parent actually is, we can't use [`forward ref`](http://stackoverflow.com/a/35154016)
+to done this.
    
 ## List of dependencies:
 - [@angular/material](https://material.angular.io)
