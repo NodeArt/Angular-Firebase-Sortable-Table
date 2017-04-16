@@ -4,7 +4,7 @@
 
 ## Description
 
-The aim of this directive is to create dynamically components on click event.
+The aim of this directive is to dynamically create components on click event.
 Particular use case is to add some data to sortable table by creation a new item.
 
 Note: Component that passed inside directive must be inside `entryComponents` list in your module.
