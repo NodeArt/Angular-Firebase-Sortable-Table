@@ -1,0 +1,71 @@
+<header class="main-toolbar md-elevation-z2" [style.display]="!filterByInputValue && !filterBySelect && !title ? 'none' : 'flex'">
+    <h1 *ngIf="title" class="title">{{title}}</h1>
+    <md-input-container *ngIf="filterByInputValue">
+        <input #searchString
+               mdInput
+               [placeholder]="filterByInputValue?.inputPlaceholder"
+               (keyup)="onSearchInputChanged($event)">
+    </md-input-container>
+    <md-select *ngIf="filterByInputValue && filterByInputValue.fields.length > 1" [placeholder]="filterByInputValue?.selectPlaceholder"
+               [(ngModel)]="filterByInputValue.defaultField">
+        <md-option
+                *ngFor="let option of filterByInputValue.fields"
+                [value]="option.value">
+            {{ option.text }}
+        </md-option>
+    </md-select>
+
+    <span class="flex"></span>
+    <md-select *ngIf="filterBySelect"
+               [placeholder]="filterBySelect?.placeholder"
+               (change)="filterBySelectChanged($event)"
+               [(ngModel)]="filterBySelect.defaultOption">
+        <md-option
+                *ngFor="let option of filterBySelect.options"
+                [value]="option.value">
+            {{ option.text }}
+        </md-option>
+    </md-select>
+</header>
+<main class="main-container" ngfbInfiniteScroll (scrolled)="onInfinite()">
+    <div class="table-content md-elevation-z2 column-filter">
+        <table class="table table-header">
+            <thead *ngIf="headers && headers.length">
+            <th *ngFor="let header of headers">
+                <div>
+                    <p>{{header.name}}</p>
+                    <button md-icon-button *ngIf="header.sortable" (click)="sortBy(header.name)">
+                        <md-icon>{{ fieldToSortBy === '-' + header.name || fieldToSortBy !== header.name ? 'arrow_upward' : 'arrow_downward'}}</md-icon>
+                    </button>
+                </div>
+            </th>
+            </thead>
+            <tbody *ngIf="data && data.length;">
+                <template *ngFor="let item of data; let i = index; trackBy: trackByFn"
+                          ngfbSortableItem
+                          [item]="item"
+                          [index]="i"
+                          (itemChange)="onItemChange($event)"
+                          [component]="itemComponent">
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <ngfb-loading [isLoading]="isLoading"></ngfb-loading>
+</main>
+<footer *ngIf="pagination || addNew">
+    <md-select  *ngIf="pagination" [placeholder]="pagination?.placeholder"
+               (change)="paginationChanged($event.value)"
+               [ngModel]="pagination.defaultOption">
+        <md-option *ngFor="let option of pagination.options" [value]="option">{{ option }}</md-option>
+    </md-select>
+    <span class="flex"></span>
+    <button color="primary"
+            *ngIf="addNew"
+            md-fab
+            ngfbDialog
+            (onDialogResult)="onItemChange($event)"
+            [component]="addNew">
+        <i class="material-icons">exposure_plus_1</i>
+    </button>
+</footer>
