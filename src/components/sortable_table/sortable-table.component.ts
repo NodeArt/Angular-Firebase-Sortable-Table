@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
 import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/sortable-table.model";
-import { fadeInAnimation } from "../../../route.animation";
 import { Observable } from "rxjs";
 
 declare const require: any;
@@ -15,10 +14,6 @@ const debounce = require('lodash.debounce');
     templateUrl: './sortable-table.component.html',
     styleUrls: ['./sortable-table.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    host: {
-        "[@fadeInAnimation]": "true"
-    },
-    animations: [ fadeInAnimation ]
 })
 export class SortableTableComponent implements OnChanges {
     @Input() public title: string;
