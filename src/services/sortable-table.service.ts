@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from  'rxjs';
 import { database } from 'firebase';
 import { FieldToQueryBy } from '../models/sortable-table.model';
+
 @Injectable()
 export class SortableTableService {
   public DB: database.Database = database();

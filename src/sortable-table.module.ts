@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { MaterialModule } from "@angular/material";
 
 import { SortableTableComponent } from "./components/sortable_table/sortable-table.component";
-import { LoadingComponent } from "./components/loading/loading.component";
 
 import { DialogDirective } from "./directives/dialog.directive";
 import { SortableItemDirective } from "./directives/sortable-item.directive";
@@ -19,7 +18,6 @@ export function declarations() {
   return [
     SortableTableComponent,
     SortableItemDirective,
-    LoadingComponent,
     DialogDirective,
     InfiniteScrollDirective,
     PriorityKeysPipe
@@ -31,7 +29,6 @@ export function declarations() {
   exports: [
     SortableTableComponent,
     SortableItemDirective,
-    LoadingComponent,
     DialogDirective,
     InfiniteScrollDirective,
     PriorityKeysPipe

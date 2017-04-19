@@ -28,7 +28,6 @@ export class SortableTableComponent implements OnChanges {
     @ViewChild('searchString') public searchString;
     public data: Array<any> = [];
     public headers: Array<HeaderItem>;
-    public isLoading: boolean = false;
     public fieldToSortBy: string;
     public isFirstTime: boolean = true;
     constructor(
@@ -113,7 +112,6 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public fetchData(event? : number, fieldToQueryBy?: FieldToQueryBy, cleanUp?: boolean): void {
-        this.isLoading = true;
         this.reset(event);
 
         const requestStream = this.DB
@@ -123,7 +121,6 @@ export class SortableTableComponent implements OnChanges {
 
         requestStream
             .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
-            .do(() => this.isLoading = false)
             .first()   //never lose the link to obj in order to save rendering process
             .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
 

@@ -47,6 +47,5 @@ export interface FieldToQueryBy {
 export abstract class TableItem {
     item: Object;
     index: number;
-    component: ComponentType<any>;
     onItemChange?: EventEmitter<any>;
 }
