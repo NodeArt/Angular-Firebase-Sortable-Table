@@ -9,7 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate": "node ./generate_data"
+    "generate": "node ./generate_data",
+    "deployRules": "firebase deploy --only database",
+    "predeploy" : "npm run build",
+    "deploy" : "firebase deploy --only database hosting"
   },
   "private": true,
   "dependencies": {

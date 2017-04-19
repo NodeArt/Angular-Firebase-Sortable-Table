@@ -1,0 +1,11 @@
+<td><img [src]="item.image" (load)="loadImg($event)"></td>
+<td>{{item.name}}</td>
+<td>{{item.age}}</td>
+<td>{{item.job}}</td>
+<td>{{item.country}}</td>
+<td>{{item.gender}}</td>
+<td>{{item.cv}}</td>
+<td>{{item.favoriteFramework}}</td>
+<td>
+    <md-checkbox [disabled]="true" [ngModel]="item.inSearch">Checked</md-checkbox>
+</td>

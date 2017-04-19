@@ -1,0 +1,32 @@
+<md-sidenav-container>
+  <md-sidenav class="sidenav" opened="true" align="start" mode="side">
+    <md-toolbar color="primary" class="sidenav-toolbar md-elevation-z2">
+      <div fxLayout="row" style="width: 100%; display: flex; justify-content: center">
+        <h4 style="color:white">NGFB Sortable Table Demo App</h4>
+      </div>
+    </md-toolbar>
+
+    <div class="sidenav-scrollbar-container" fxLayout="column">
+      <md-nav-list class="sidenav-list sidenav-toplevel">
+        <button md-raised-button
+                *ngFor="let item of sideNavItems"
+                [routerLink]="['/app', item.toFetch]"
+                routerLinkActive="active">{{item.name}}</button>
+      </md-nav-list>
+      <span fxFlex></span>
+    </div>
+  </md-sidenav>
+  <ngfb-sortable-table
+          [title]="toFetch.split('_').join(' ')"
+          [databaseDataPath]="toFetch"
+          [itemComponent]="itemComponent"
+          [filterBySelect]="filterBySelect"
+          [filterByInputValue]="filterByInputValue"
+          [pagination]="pagination"
+          [addNew]="addNew"
+          [onChange]="afterPopupClose"
+          [setHeaders]="setHeaders">
+  </ngfb-sortable-table>
+
+
+</md-sidenav-container>
