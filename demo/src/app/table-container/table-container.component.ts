@@ -112,13 +112,14 @@ export class TableContainerComponent {
     } else if (this.toFetch === 'employers') {
       priority = EmployersPriority;
     }
-    return obs.map(({key, value}) => {
+    return obs.map(({key, value}): Array<HeaderItem> => {
       const arr = Object.keys(value);
       if (arr.length) {
         const data = Object.assign({}, value[Object.keys(value)[0]]);
-        const notSortable = ['image', 'cv'];
-        return this.keysPipe.transform(data, priority)
-            .map((elem) => ({name : elem, sortable: notSortable.indexOf(elem) === -1}));
+        const arr = this.keysPipe.transform(data, priority)
+            .map((elem) => ({name : elem, sortable: elem !== 'cv'}));
+        arr.unshift({name : 'image', sortable: false});
+        return arr;
       }
     })
   }

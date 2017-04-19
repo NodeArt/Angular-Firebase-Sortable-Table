@@ -21,7 +21,6 @@ const peoplesFactory = function(i) {
     age: chance.age(),
     gender: chance.gender(),
     country: chance.country(),
-    image: chance.avatar({fileExtension: 'jpg'}),
     job: i < 100 ? "Frontend Engineer" : "Backend Engineer",
     cv: chance.sentence(),
     inSearch: i % 2 === 0,
@@ -37,7 +36,6 @@ const employersFactory = function(i) {
     phone: chance.phone(),
     lookingFor: i > 100 ? "Frontend Engineer" : "Backend Engineer",
     email: chance.email(),
-    image: chance.avatar({fileExtension: 'jpg'})
   }
 };
 
