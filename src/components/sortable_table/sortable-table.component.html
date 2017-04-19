@@ -34,7 +34,7 @@
             <th *ngFor="let header of headers">
                 <div>
                     <p>{{header.name}}</p>
-                    <button md-icon-button *ngIf="header.sortable" (click)="sortBy(header.name)">
+                    <button md-mini-fab *ngIf="header.sortable" (click)="sortBy(header.name)">
                         <md-icon>{{ fieldToSortBy === '-' + header.name || fieldToSortBy !== header.name ? 'arrow_upward' : 'arrow_downward'}}</md-icon>
                     </button>
                 </div>
@@ -51,6 +51,7 @@
             </tbody>
         </table>
     </div>
+    <ngfb-loading [isLoading]="isLoading"></ngfb-loading>
 </main>
 <footer *ngIf="pagination || addNew">
     <md-select  *ngIf="pagination" [placeholder]="pagination?.placeholder"

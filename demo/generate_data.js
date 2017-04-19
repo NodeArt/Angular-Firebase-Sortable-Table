@@ -23,7 +23,7 @@ const peoplesFactory = function(i) {
     country: chance.country(),
     image: chance.avatar({fileExtension: 'jpg'}),
     job: i < 100 ? "Frontend Engineer" : "Backend Engineer",
-    cv:  chance.paragraph(),
+    cv: chance.sentence(),
     inSearch: i % 2 === 0,
     favoriteFramework: i % 2 ? (i > 100 ? "AngularJS" : "Angular2+")  : (i > 100 ? "React.JS" : "Vue.JS")
   }
@@ -31,7 +31,8 @@ const peoplesFactory = function(i) {
 
 const employersFactory = function(i) {
   return {
-    country: chance.name(),
+    name: chance.name(),
+    country: chance.country(),
     address: chance.address({short_suffix: true}),
     phone: chance.phone(),
     lookingFor: i > 100 ? "Frontend Engineer" : "Backend Engineer",

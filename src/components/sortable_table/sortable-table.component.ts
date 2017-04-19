@@ -26,6 +26,7 @@ export class SortableTableComponent implements OnChanges {
     @Input() public onChange: Function;
     @Input() public addNew: Component;
     @ViewChild('searchString') public searchString;
+    public isLoading: boolean = false;
     public data: Array<any> = [];
     public headers: Array<HeaderItem>;
     public fieldToSortBy: string;
@@ -99,7 +100,9 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public filterBySelectChanged($event) {
-        this.paginationChanged(this.pagination.defaultOption);
+        if (this.pagination) {
+            this.paginationChanged(this.pagination.defaultOption);
+        }
         this.fetchData(SortableEvents.FilterBySelect, {
             value: $event.value,
             field: this.filterBySelect.field
@@ -112,6 +115,7 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public fetchData(event? : number, fieldToQueryBy?: FieldToQueryBy, cleanUp?: boolean): void {
+        this.isLoading = true;
         this.reset(event);
 
         const requestStream = this.DB
@@ -121,6 +125,7 @@ export class SortableTableComponent implements OnChanges {
 
         requestStream
             .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
+            .do(() => this.isLoading = false)
             .first()   //never lose the link to obj in order to save rendering process
             .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
 
@@ -130,7 +135,7 @@ export class SortableTableComponent implements OnChanges {
                     const keys = Object.keys(value);
                     if (keys.length) {
                         const data = value[Object.keys(value)[0]];
-                        return Object.keys(data).map(key => ({name : key, sortable: true}))
+                        return Object.keys(data).map(key => ({name : key, sortable: false}))
                     }
                 });
 
@@ -159,7 +164,9 @@ export class SortableTableComponent implements OnChanges {
 
     public sortBy(field): void {
         this.fieldToSortBy = this.fieldToSortBy === field ? `-${field}` : field;
-        this.paginationChanged(this.pagination.defaultOption);
+        if (this.pagination) {
+            this.paginationChanged(this.pagination.defaultOption);
+        }
         this.fetchData(SortableEvents.SortByField, {
             field: field,
             order: this.fieldToSortBy.startsWith('-') ? 'desc' : 'asc'
