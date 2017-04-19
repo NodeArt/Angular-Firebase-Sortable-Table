@@ -9,6 +9,7 @@ import {Common} from "../common";
 export class EmployerItemComponent extends Common implements TableItem {
   constructor() {
     super();
+    this.getImage();
   }
   
 }

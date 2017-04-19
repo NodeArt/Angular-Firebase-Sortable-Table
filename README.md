@@ -8,6 +8,10 @@ It was decided to avoid using third part services as
 observer servers using [node](https://nodejs.org/en/). Before you start it is strongly recommended to read an 
 [this](https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data) article.
 
+## Demo 
+
+In order to start demo run `npm run demo` or [see it](https://ngfb-sortable-table-demo.firebaseapp.com/) in action
+
 ## List of components:
 
 - [`SortableTableComponent`]() [doc](./docs/sortable_table_component.md)
