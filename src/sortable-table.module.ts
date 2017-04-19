@@ -14,15 +14,20 @@ import { PriorityKeysPipe } from "./pipes/priority-keys.pipe";
 
 import { SortableTableService } from "./services/sortable-table.service";
 
-@NgModule({
-  declarations: [
+
+export function declarations() {
+  return [
     SortableTableComponent,
     SortableItemDirective,
     LoadingComponent,
     DialogDirective,
     InfiniteScrollDirective,
     PriorityKeysPipe
-  ],
+  ];
+}
+
+@NgModule({
+  declarations: declarations(),
   exports: [
     SortableTableComponent,
     SortableItemDirective,
@@ -40,5 +45,4 @@ import { SortableTableService } from "./services/sortable-table.service";
     FormsModule
   ]
 })
-
 export class NgFbSortableTableModule { }

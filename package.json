@@ -1,10 +1,11 @@
 {
-  "name": "ngfb_sortable_table",
-  "version": "0.0.1",
+  "name": "@nodeart/ngfb_sortable_table",
+  "version": "0.0.2",
   "description": "Angular 2+ Firebase Sortable Table",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "createDemo": "ng new demo --style scss --routing true"
   },
   "keywords": [
     "angular",

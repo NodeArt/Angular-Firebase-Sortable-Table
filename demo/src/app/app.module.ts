@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { NgFbSortableTableModule } from "../../../src/index";
 
 @NgModule({
   declarations: [
@@ -15,7 +14,7 @@ import { NgFbSortableTableModule } from "../../../src/index";
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgFbSortableTableModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

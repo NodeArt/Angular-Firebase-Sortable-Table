@@ -19,7 +19,7 @@ observer servers using [node](https://nodejs.org/en/). Before you start it is st
 
 ## Install:
 
-`npm install @nodeart/ngfb-sortable-table --save`
+`npm install @nodeart/ngfb_sortable_table --save`
 
 ## Description:
 Module is supplied with set of features that could be useful while working with tables such as
