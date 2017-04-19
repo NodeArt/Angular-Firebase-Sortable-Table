@@ -1,3 +1,4 @@
 node_modules/
 .idea/
+demo/.idea/
 npm_debug.log
