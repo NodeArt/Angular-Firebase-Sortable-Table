@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { TableItem } from "@nodeart/ngfb_sortable_table";
 import {Common} from "../common";
 @Component({
   selector: 'tr [app-employer-item]',
   templateUrl: './employer-item.component.html',
   styleUrls: ['./employer-item.component.scss', '../item.scss']
 })
-export class EmployerItemComponent extends Common implements TableItem {
+export class EmployerItemComponent extends Common implements OnInit {
   constructor() {
     super();
-    this.getImage();
+  }
+
+  ngOnInit() {
+    this.getImage().then((url : string) => this.imageUrl = url)
   }
   
 }

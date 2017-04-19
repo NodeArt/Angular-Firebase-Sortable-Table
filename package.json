@@ -1,6 +1,6 @@
 {
   "name": "@nodeart/ngfb_sortable_table",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Angular 2+ Firebase Sortable Table",
   "main": "index.ts",
   "scripts": {

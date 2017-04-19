@@ -1,4 +1,6 @@
-export class Common {
+import {TableItem} from "@nodeart/ngfb_sortable_table";
+
+export class Common implements TableItem {
     public item: Object;
     public index: number;
     public imageUrl: string;
