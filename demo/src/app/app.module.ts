@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule, MdIconRegistry } from "@angular/material";
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule} from "@angular/material";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,22 +32,22 @@ initializeApp(config);
     TableContainerComponent,
     PeopleItemComponent,
     EmployerItemComponent
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
     NgFbSortableTableModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+
   ],
   entryComponents: [
     PeopleItemComponent,
     EmployerItemComponent
   ],
-  providers: [MdIconRegistry],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

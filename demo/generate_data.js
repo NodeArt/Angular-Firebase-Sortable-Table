@@ -19,7 +19,7 @@ const peoplesFactory = function(i) {
   return {
     name: chance.name(),
     age: chance.age(),
-    birthday: chance.birthday({string: true, american: false}),
+    gender: chance.gender(),
     country: chance.country(),
     image: chance.avatar({fileExtension: 'jpg'}),
     job: i < 100 ? "Frontend Engineer" : "Backend Engineer",

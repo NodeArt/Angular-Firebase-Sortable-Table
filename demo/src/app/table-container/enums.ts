@@ -4,7 +4,7 @@ export enum PeoplePriority {
     age,
     job,
     country,
-    birthday,
+    gender,
     cv,
     favoriteFramework,
     inSearch

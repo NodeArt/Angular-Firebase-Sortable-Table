@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
-import { MaterialModule } from "@angular/material";
+import { MaterialModule, MdIconRegistry } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { SortableTableComponent } from "./components/sortable_table/sortable-table.component";
 import { LoadingComponent } from "./components/loading/loading.component";
@@ -37,10 +38,12 @@ export function declarations() {
     PriorityKeysPipe
   ],
   providers: [
-    SortableTableService
+    SortableTableService,
+    MdIconRegistry
   ],
   imports: [
     MaterialModule.forRoot(),
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule
   ]
