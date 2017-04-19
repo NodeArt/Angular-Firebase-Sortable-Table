@@ -173,9 +173,9 @@ export class SortableTableComponent implements OnChanges {
         }, true);
     }
 
-    public onItemChange(...args): void {
+    public onItemChange(result): void {
         if (this.onChange) {
-            this.onChange(args);
+            this.onChange(result);
         }
     }
 }

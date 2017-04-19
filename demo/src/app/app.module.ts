@@ -11,8 +11,9 @@ import { NgFbSortableTableModule } from '@nodeart/ngfb_sortable_table';
 import { TableContainerComponent } from './table-container/table-container.component';
 import { PeopleItemComponent } from './people-item/people-item.component';
 import { EmployerItemComponent } from './employer-item/employer-item.component';
+import { NewPersonComponent } from "./new-person/new-person.component";
 
-import {initializeApp} from 'firebase';
+import { initializeApp } from 'firebase';
 
 // Initialize Firebase
 var config = {
@@ -31,8 +32,8 @@ initializeApp(config);
     AppComponent,
     TableContainerComponent,
     PeopleItemComponent,
-    EmployerItemComponent
-
+    EmployerItemComponent,
+    NewPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +43,11 @@ initializeApp(config);
     AppRoutingModule,
     NgFbSortableTableModule,
     MaterialModule.forRoot(),
-
   ],
   entryComponents: [
     PeopleItemComponent,
-    EmployerItemComponent
+    EmployerItemComponent,
+    NewPersonComponent
   ],
   bootstrap: [AppComponent]
 })
