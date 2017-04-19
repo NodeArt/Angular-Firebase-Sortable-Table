@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import { EventEmitter } from "@angular/core";
+import {ComponentType} from "@angular/material";
 import { Observable } from "rxjs";
+
 export interface HeaderItem {
     name: string;
     sortable: boolean;
@@ -9,14 +11,11 @@ export type AfterPopupCloseFunction = (items: Array<any>, ...args : Array<any>) 
 
 export type SetHeadersFunction = (data : Observable<{key: string, value : Array<any>}>) => Observable<Array<HeaderItem>>;
 
-export interface AddNew {
-    component: Component;
-    afterPopupClose: AfterPopupCloseFunction;
-}
-
 export interface SearchString {
-    field: string;
-    placeholder?: string;
+    defaultField: string;
+    inputPlaceholder?: string;
+    selectPlaceholder?: string;
+    fields: Array<TableFilterOption>;
 }
 
 export interface TableFilterOption {
@@ -42,4 +41,12 @@ export interface FieldToQueryBy {
     field: string;
     order?: string;
     value?: string | number | boolean;
+}
+
+
+export abstract class TableItem {
+    item: Object;
+    index: number;
+    component: ComponentType<any>;
+    onItemChange?: EventEmitter<any>;
 }

@@ -79,22 +79,15 @@
   height: calc(100% - 70px);
 }
 
-.search-container {
-  margin: 0 20px;
-  width: 30%;
-  div {
-    color: rgba(0,0,0,.38);
-  }
+header {
+  padding: 0 10px;
   md-input-container {
     width: 100%;
+    margin: 0 10px;
   }
   input {
     color: black;
   }
-}
-
-header {
-  padding: 0 10px;
 }
 
 header {

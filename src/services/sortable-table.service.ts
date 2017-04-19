@@ -25,7 +25,6 @@ export class SortableTableService {
   }
 
   public querify(ref: database.Reference): any {
-    console.log('query=',this.query);
     const keys = Object.keys(this.query);
     return keys.reduce((ref, key: string) =>
       key === 'orderByKey' || key === 'orderByPriority' ?
@@ -137,16 +136,6 @@ export class SortableTableService {
               this.lastKeyGot = lastObj['$key'];
           }
 
-          // console.group('TRACK EVENT');
-           console.log('data.length=', data.length);
-          // console.log('prevLastItem=', prevLastItem);
-          // console.log('prevLastKey=', prevLastKey);
-          // console.log('lastItemGot=', this.lastItemGot);
-          // console.log('lastKeyGot=', this.lastKeyGot);
-          // console.log('lastEventHappened', this.lastEventHappened);
-          // console.log('currentEvent', event);
-          // console.groupEnd();
-
           if (prevLastKey === this.lastKeyGot &&
               event === SortableEvents.InfiniteScroll &&
               this.lastEventHappened === undefined
@@ -165,7 +154,6 @@ export class SortableTableService {
               this.lastSort.order &&
               this.lastSort.order === 'desc')
           ) {
-            console.warn('reverse');
             value = value.reverse();
           //filter by input string
           } else if (event === SortableEvents.FilterBySearch) {

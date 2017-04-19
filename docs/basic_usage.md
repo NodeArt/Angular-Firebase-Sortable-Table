@@ -4,7 +4,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from "@angular/router";
 import { Observable } from "rxjs";
-import { Pagination, TableFilter, AddNew, PriorityKeysPipe, HeaderItem } from "@nodeart/ngfb-sortable-table";
+import { Pagination, TableFilter, AddNew, PriorityKeysPipe, HeaderItem } from src;
 
 @Component({
   selector: 'tr [table-item]', //it is absolutely obligatory to use such a selector to have proper display of a table.  

@@ -9,12 +9,12 @@ export {
     HeaderItem,
     AfterPopupCloseFunction,
     SetHeadersFunction,
-    AddNew,
     SearchString,
     TableFilterOption,
     TableFilter,
     Pagination,
-    FieldToQueryBy
+    FieldToQueryBy,
+    TableItem
 } from "./models/sortable-table.model";
 
 export { NgFbSortableTableModule } from "./sortable-table.module";

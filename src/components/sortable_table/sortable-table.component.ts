@@ -2,7 +2,7 @@ import {
     Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
 } from '@angular/core';
 import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
-import { HeaderItem, AddNew, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString } from "../../models/sortable-table.model";
+import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/sortable-table.model";
 import { fadeInAnimation } from "../../../route.animation";
 import { Observable } from "rxjs";
 
@@ -12,8 +12,8 @@ const debounce = require('lodash.debounce');
 
 @Component({
     selector: 'ngfb-sortable-table',
-    templateUrl: 'sortable-table.component.html',
-    styleUrls: ['sortable-table.component.scss'],
+    templateUrl: './sortable-table.component.html',
+    styleUrls: ['./sortable-table.component.scss'],
     encapsulation: ViewEncapsulation.None,
     host: {
         "[@fadeInAnimation]": "true"
@@ -27,8 +27,9 @@ export class SortableTableComponent implements OnChanges {
     @Input() public pagination: Pagination;
     @Input() public filterByInputValue: SearchString;
     @Input() public filterBySelect: TableFilter;
-    @Input() public itemComponent: Component;
-    @Input() public addNew: AddNew;
+    @Input() public itemComponent: TableItem;
+    @Input() public onChange: Function;
+    @Input() public addNew: Component;
     @ViewChild('searchString') public searchString;
     public data: Array<any> = [];
     public headers: Array<HeaderItem>;
@@ -41,7 +42,6 @@ export class SortableTableComponent implements OnChanges {
 
     public ngOnChanges(changes: SimpleChanges): void {
         const pathToFetchChangedTo = changes['databaseDataPath'] as SimpleChange;
-        console.log(changes['filterBySelect']);
         if (pathToFetchChangedTo) {
             this.DB.lastEventHappened = undefined;
             if (!pathToFetchChangedTo.isFirstChange()) {
@@ -70,7 +70,7 @@ export class SortableTableComponent implements OnChanges {
             .first()
             .subscribe(inputVal => {
                 this.fetchData(SortableEvents.FilterBySearch, {
-                    field: this.filterByInputValue.field,
+                    field: this.filterByInputValue.defaultField,
                     value: inputVal
                 }, true);
             })
@@ -105,6 +105,7 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public filterBySelectChanged($event) {
+        this.paginationChanged(this.pagination.defaultOption);
         this.fetchData(SortableEvents.FilterBySelect, {
             value: $event.value,
             field: this.filterBySelect.field
@@ -112,6 +113,7 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public paginationChanged(value) {
+        this.pagination.defaultOption = value;
         this.DB.setPagination(value);
     }
 
@@ -150,7 +152,6 @@ export class SortableTableComponent implements OnChanges {
     }
 
     public onInfinite(): void {
-        console.log('infinite');
         if (this.pagination) {
             this.fetchData(
                 SortableEvents.InfiniteScroll,
@@ -167,16 +168,15 @@ export class SortableTableComponent implements OnChanges {
     public sortBy(field): void {
         this.fieldToSortBy = this.fieldToSortBy === field ? `-${field}` : field;
         this.paginationChanged(this.pagination.defaultOption);
-        console.log('order', this.fieldToSortBy.startsWith('-') ? 'desc' : 'asc');
         this.fetchData(SortableEvents.SortByField, {
             field: field,
             order: this.fieldToSortBy.startsWith('-') ? 'desc' : 'asc'
         }, true);
     }
 
-    public afterPopupClose(...args): void {
-        if (this.addNew.afterPopupClose) {
-            this.addNew.afterPopupClose.apply(this, [this.data, ...args]);
+    public onItemChange(...args): void {
+        if (this.onChange) {
+            this.onChange(args);
         }
     }
 }

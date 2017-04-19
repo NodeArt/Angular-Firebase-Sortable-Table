@@ -1,13 +1,20 @@
 <header class="main-toolbar md-elevation-z2" [style.display]="!filterByInputValue && !filterBySelect && !title ? 'none' : 'flex'">
     <h1 *ngIf="title" class="title">{{title}}</h1>
-    <div class="search-container" *ngIf="filterByInputValue">
-        <md-input-container>
-            <input #searchString
-                   mdInput
-                   [placeholder]="filterByInputValue?.placeholder"
-                   (keyup)="onSearchInputChanged($event)">
-        </md-input-container>
-    </div>
+    <md-input-container *ngIf="filterByInputValue">
+        <input #searchString
+               mdInput
+               [placeholder]="filterByInputValue?.inputPlaceholder"
+               (keyup)="onSearchInputChanged($event)">
+    </md-input-container>
+    <md-select *ngIf="filterByInputValue && filterByInputValue.fields.length > 1" [placeholder]="filterByInputValue?.selectPlaceholder"
+               [(ngModel)]="filterByInputValue.defaultField">
+        <md-option
+                *ngFor="let option of filterByInputValue.fields"
+                [value]="option.value">
+            {{ option.text }}
+        </md-option>
+    </md-select>
+
     <span class="flex"></span>
     <md-select *ngIf="filterBySelect"
                [placeholder]="filterBySelect?.placeholder"
@@ -34,9 +41,11 @@
             </th>
             </thead>
             <tbody *ngIf="data && data.length;">
-                <template *ngFor="let item of data; trackBy: trackByFn"
+                <template *ngFor="let item of data; let i = index; trackBy: trackByFn"
                           ngfbSortableItem
                           [item]="item"
+                          [index]="i"
+                          (itemChange)="onItemChange($event)"
                           [component]="itemComponent">
                 </template>
             </tbody>
@@ -55,8 +64,8 @@
             *ngIf="addNew"
             md-fab
             ngfbDialog
-            (onDialogResult)="afterPopupClose()"
-            [component]="addNew.component">
+            (onDialogResult)="onItemChange($event)"
+            [component]="addNew">
         <i class="material-icons">exposure_plus_1</i>
     </button>
 </footer>
