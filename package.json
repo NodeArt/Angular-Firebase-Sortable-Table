@@ -1,6 +1,6 @@
 {
   "name": "@nodeart/ngfb_sortable_table",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Angular 2+ Firebase Sortable Table",
   "main": "index.ts",
   "scripts": {
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@angular/material": "^2.0.0-beta.3",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "firebase": "^3.8.0"
   }
 }

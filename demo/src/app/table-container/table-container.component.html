@@ -15,11 +15,12 @@
       </md-nav-list>
       <span fxFlex></span>
     </div>
+
   </md-sidenav>
   <ngfb-sortable-table
-          [title]="toFetch.split('_').join(' ')"
           [databaseDataPath]="toFetch"
           [itemComponent]="itemComponent"
+          [title]="toFetch.split('_').join(' ')"
           [filterBySelect]="filterBySelect"
           [filterByInputValue]="filterByInputValue"
           [pagination]="pagination"
