@@ -1,7 +1,7 @@
 <md-sidenav-container>
   <md-sidenav class="sidenav" opened="true" align="start" mode="side">
-    <md-toolbar color="primary" class="sidenav-toolbar md-elevation-z2">
-      <div fxLayout="row" style="width: 100%; display: flex; justify-content: center">
+    <md-toolbar color="secondary" class="sidenav-toolbar md-elevation-z2">
+      <div style="width: 100%; display: flex; justify-content: center">
         <h4 style="color:white">NGFB Sortable Table Demo App</h4>
       </div>
     </md-toolbar>
@@ -9,11 +9,11 @@
     <div class="sidenav-scrollbar-container" fxLayout="column">
       <md-nav-list class="sidenav-list sidenav-toplevel">
         <button md-raised-button
+                [color]="'accent'"
                 *ngFor="let item of sideNavItems"
                 [routerLink]="['/app', item.toFetch]"
                 routerLinkActive="active">{{item.name}}</button>
       </md-nav-list>
-      <span fxFlex></span>
     </div>
 
   </md-sidenav>
