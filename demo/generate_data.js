@@ -22,7 +22,7 @@ const peoplesFactory = function(i) {
     birthday: chance.birthday({string: true, american: false}),
     country: chance.country(),
     image: chance.avatar({fileExtension: 'jpg'}),
-    job: i > 100 ? "Frontend Engineer" : "Frontend Developer",
+    job: i < 100 ? "Frontend Engineer" : "Backend Engineer",
     cv:  chance.paragraph(),
     inSearch: i % 2 === 0,
     favoriteFramework: i % 2 ? (i > 100 ? "AngularJS" : "Angular2+")  : (i > 100 ? "React.JS" : "Vue.JS")
