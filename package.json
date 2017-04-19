@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDemo": "ng new demo --style scss --routing true"
+    "createDemo": "ng new demo --style scss --routing true",
+    "demo" : "cd ./demo && npm i && npm start"
   },
   "keywords": [
     "angular",
