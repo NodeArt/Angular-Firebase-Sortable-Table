@@ -1,7 +1,7 @@
 import {Directive, ViewContainerRef, ComponentFactoryResolver, Input, Output, Component, EventEmitter} from '@angular/core';
 
 @Directive({
-  selector: 'template [ngfbSortableItem]'
+  selector: '[ngfbSortableItem]'
 })
 export class SortableItemDirective {
   @Input() public item: Object;

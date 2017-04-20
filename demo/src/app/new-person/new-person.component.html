@@ -1,6 +1,67 @@
-<h1 style="color: #FAFAFA">
-  Create new person.
-</h1>
-<p style="color: #FAFAFA">
-  After closing of popup 'onChange' function will be called in context of the table
-</p>
+<div class="container">
+  <img [src]="imageUrl || ''" (load)="loadImg($event)">
+  <form name="ngForm" [formGroup]="form" novalidate>
+    <md-input-container>
+      <input type="text" mdInput
+             name="name"
+             placeholder="Person name"
+             formControlName="name">
+    </md-input-container>
+    <md-input-container>
+      <input type="number" mdInput
+             min="16"
+             max="100"
+             name="age"
+             placeholder="Person age"
+             formControlName="age">
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput
+             name="country"
+             maxlength="2"
+             placeholder="Person country"
+             formControlName="country">
+    </md-input-container>
+    <md-input-container>
+    <textarea mdInput
+              name="cv"
+              placeholder="Person cv"
+              formControlName="cv"></textarea>
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput
+             name="job"
+             placeholder="Person job"
+             formControlName="job">
+    </md-input-container>
+    <md-select name="gender"
+               [placeholder]="'Gender'" formControlName="gender">
+      <md-option [value]="'Female'">Female</md-option>
+      <md-option [value]="'Male'">Male</md-option>
+    </md-select>
+    <md-select name="favoriteFramework"
+               [placeholder]="'Favorite framework'"
+               formControlName="favoriteFramework">
+      <md-option [value]="'AngularJS'">AngularJS</md-option>
+      <md-option [value]="'Angular2+'">Angular2+</md-option>
+      <md-option [value]="'Vue.JS'">Vue.JS</md-option>
+      <md-option [value]="'React.JS'">React.JS</md-option>
+      <md-option [value]="'Knockout.JS'">Knockout.JS</md-option>
+      <md-option [value]="'Backbone'">Backbone</md-option>
+      <md-option [value]="'Meteor'">Meteor</md-option>
+    </md-select>
+    <md-checkbox name="inSearch" formControlName="inSearch">
+      Is person looking for a job
+    </md-checkbox>
+  </form>
+</div>
+<md-dialog-actions align="end">
+  <button type="submit"
+          md-button
+          [disabled]="!form.valid"
+          color="warn"
+          (click)="closePopup(true)">Save</button>
+  <button md-button
+          color="primary"
+          (click)="closePopup(false)">Close</button>
+</md-dialog-actions>

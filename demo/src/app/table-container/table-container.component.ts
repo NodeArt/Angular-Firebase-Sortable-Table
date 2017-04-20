@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
+import { MdDialogRef, MdDialog, MdDialogConfig } from "@angular/material";
+import { Pagination, TableFilter, SearchString, PriorityKeysPipe, HeaderItem } from "@nodeart/ngfb_sortable_table";
+import { Observable } from "rxjs";
+
 import { EmployerItemComponent } from "../employer-item/employer-item.component";
 import { PeopleItemComponent } from "../people-item/people-item.component";
 import { NewPersonComponent } from "../new-person/new-person.component";
-import { Pagination, TableFilter, SearchString, PriorityKeysPipe, HeaderItem } from "@nodeart/ngfb_sortable_table";
-import { Observable } from "rxjs";
+import { AlertComponent } from "../alert/alert.component";
 
 import { PeoplePriority, EmployersPriority } from "./enums";
 
@@ -30,9 +33,9 @@ export class TableContainerComponent {
   constructor(
       private router: Router,
       private route: ActivatedRoute,
-      private keysPipe: PriorityKeysPipe
+      private keysPipe: PriorityKeysPipe,
+      private dialog: MdDialog
   ) {
-
     this.setHeaders = this.setHeaders.bind(this);
 
     for (let i = 0, l = this.router.config.length; i < l; i++) {
@@ -79,9 +82,27 @@ export class TableContainerComponent {
           }]
         };
         this.addNew = NewPersonComponent;
-        this.afterPopupClose = function () {
-          console.log(this);
+        //called it sortable table context, so used arrow function
+        this.afterPopupClose = data => {
+          if (data) {
+            const config: MdDialogConfig = {
+              disableClose: true
+            };
+
+            const ref: MdDialogRef<AlertComponent> = this.dialog.open(
+                AlertComponent,
+                config
+            );
+
+            ref.componentInstance['data'] = {
+              title: 'Add person',
+              msg: `${data['name']} will be added to list`,
+              ok: 'Ok',
+              err: 'Close'
+            };
+          }
         };
+
       } else if (this.toFetch === 'employers') {
         this.itemComponent = EmployerItemComponent;
         this.filterBySelect = null;
@@ -100,7 +121,26 @@ export class TableContainerComponent {
           }]
         };
         this.addNew = null;
-        this.afterPopupClose = null;
+        //called it sortable table context, so used arrow function
+        this.afterPopupClose = data => {
+          if (data['delete']) {
+            const config: MdDialogConfig = {
+              disableClose: true
+            };
+
+            const ref: MdDialogRef<AlertComponent> = dialog.open(
+                AlertComponent,
+                config
+            );
+            
+            ref.componentInstance['data'] = {
+              title: 'Remove person',
+              msg: `${data['name']} will be removed from list`,
+              ok: 'Ok',
+              err: 'Close'
+            };
+          }
+        }
       }
     });
   }
@@ -116,8 +156,13 @@ export class TableContainerComponent {
       const arr = Object.keys(value);
       if (arr.length) {
         const data = Object.assign({}, value[Object.keys(value)[0]]);
-        const arr = this.keysPipe.transform(data, priority)
+        const arr = this.keysPipe
+            .transform(data, priority)
             .map((elem) => ({name : elem, sortable: elem !== 'cv'}));
+
+        if (this.toFetch === 'employers') {
+          arr.push({name: 'delete', sortable: false});
+        }
         arr.unshift({name : 'image', sortable: false});
         return arr;
       }

@@ -39,13 +39,22 @@
                 </div>
             </th>
             </thead>
-            <tbody *ngIf="data && data.length;">
-                <template *ngFor="let item of data; let i = index; trackBy: trackByFn"
+            <tbody *ngIf="data && data.length && version > 2">
+                <ng-template *ngFor="let item of data; let i = index; trackBy: trackByFn"
                           ngfbSortableItem
                           [item]="item"
                           [index]="i"
                           (itemChange)="onItemChange($event)"
                           [component]="itemComponent">
+                </ng-template>
+            </tbody>
+            <tbody *ngIf="data && data.length && version === 2">
+                <template *ngFor="let item of data; let i = index; trackBy: trackByFn"
+                             ngfbSortableItem
+                             [item]="item"
+                             [index]="i"
+                             (itemChange)="onItemChange($event)"
+                             [component]="itemComponent">
                 </template>
             </tbody>
         </table>

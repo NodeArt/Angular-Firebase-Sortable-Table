@@ -1,5 +1,5 @@
 import {
-    Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
+    Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges, VERSION
 } from '@angular/core';
 import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
 import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/sortable-table.model";
@@ -8,7 +8,6 @@ import { Observable } from "rxjs";
 declare const require: any;
 
 const debounce = require('lodash.debounce');
-
 @Component({
     selector: 'ngfb-sortable-table',
     templateUrl: './sortable-table.component.html',
@@ -31,9 +30,8 @@ export class SortableTableComponent implements OnChanges {
     public headers: Array<HeaderItem>;
     public fieldToSortBy: string;
     public isFirstTime: boolean = true;
-    constructor(
-        public DB: SortableTableService
-    ) { }
+    public version = Number(VERSION.major);
+    constructor(public DB: SortableTableService) { }
 
     public ngOnChanges(changes: SimpleChanges): void {
         const pathToFetchChangedTo = changes['databaseDataPath'] as SimpleChange;

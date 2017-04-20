@@ -1,4 +1,5 @@
-import {TableItem} from "@nodeart/ngfb_sortable_table";
+import { EventEmitter } from "@angular/core";
+import { TableItem } from "@nodeart/ngfb_sortable_table";
 
 export class Common implements TableItem {
     public item: Object;
@@ -7,15 +8,15 @@ export class Common implements TableItem {
     public loadImg(event): void {
         event.target.style.opacity = 1;
     }
-    public getImage() {
+    public getImage(size) {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://randomuser.me/api/?inc=picture', true);
         xhr.send();
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                this.imageUrl = JSON.parse(xhr.response)['results'][0]['picture']['thumbnail'];
+                this.imageUrl = JSON.parse(xhr.response)['results'][0]['picture'][size];
             }
-        }
+        };
         xhr.onerror = () => this.imageUrl = '';
     }
 }

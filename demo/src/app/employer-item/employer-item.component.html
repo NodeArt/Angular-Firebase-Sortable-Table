@@ -5,3 +5,14 @@
 <td>{{item.address}}</td>
 <td>{{item.lookingFor}}</td>
 <td>{{item.email}}</td>
+<td>
+    <button md-raised-button [color]="'warn'"
+            ngfbDialog
+            [component]="component"
+            (onDialogResult)="shouldEmployerBeDeleted($event)"
+            [data]="
+                {title: 'Delete this employer',
+                msg: 'Are you sure you want to delte this employer from eployers list?', ok: 'Yes', err: 'No'}">
+        Delete employer
+    </button>
+</td>

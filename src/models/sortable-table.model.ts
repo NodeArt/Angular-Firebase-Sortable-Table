@@ -1,5 +1,4 @@
 import { EventEmitter } from "@angular/core";
-import {ComponentType} from "@angular/material";
 import { Observable } from "rxjs";
 
 export interface HeaderItem {

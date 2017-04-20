@@ -1,8 +1,8 @@
 # **Angular Firebase Sortable Table**
 
-## **What is Angular Firebase Sortable Table (AFT)?**
+## **What is Angular Firebase Sortable Table (AFST)?**
 
-**AFT** is Angular module giving a solution for common problem - creation a table with firebase as a backend. 
+**AFST** is Angular module giving a solution for common problem - creation a table with firebase as a backend. 
 It was decided to avoid using third part services as 
 [firebase cloud functions](https://firebase.google.com/docs/functions/) or writing own
 observer servers using [node](https://nodejs.org/en/). Before you start it is strongly recommended to read an 
@@ -97,6 +97,11 @@ of headers you'd prefer not to show.
 use `this` keyword in this function.
 As child component doesn't not know who his parent actually is, we can't use [`forward ref`](http://stackoverflow.com/a/35154016)
 to done this.
+- As Angular 4 is released and `<template></template>` element is deprecated and will be replaced with `<ng-template></ng-template>`
+in Angular 5 AFST will not use `<template></template>` anymore but for compatibility reasons there is an `*ngIf` directive
+that switch between `<ng-template></ng-template>` and `<template></template>` depending on the Angular version.
+But this feature will be removed soon.
+ 
    
 ## List of dependencies:
 - [@angular/material](https://material.angular.io)

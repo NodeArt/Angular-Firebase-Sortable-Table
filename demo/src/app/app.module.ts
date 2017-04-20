@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule} from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,7 @@ import { TableContainerComponent } from './table-container/table-container.compo
 import { PeopleItemComponent } from './people-item/people-item.component';
 import { EmployerItemComponent } from './employer-item/employer-item.component';
 import { NewPersonComponent } from "./new-person/new-person.component";
+import { AlertComponent } from './alert/alert.component';
 
 import { initializeApp } from 'firebase';
 
@@ -33,12 +34,14 @@ initializeApp(config);
     TableContainerComponent,
     PeopleItemComponent,
     EmployerItemComponent,
-    NewPersonComponent
+    NewPersonComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     NgFbSortableTableModule,
@@ -47,7 +50,8 @@ initializeApp(config);
   entryComponents: [
     PeopleItemComponent,
     EmployerItemComponent,
-    NewPersonComponent
+    NewPersonComponent,
+    AlertComponent
   ],
   bootstrap: [AppComponent]
 })

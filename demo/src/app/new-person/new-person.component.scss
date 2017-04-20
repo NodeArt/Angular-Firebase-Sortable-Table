@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+img {
+  border-radius: 20px;
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10px;
+  &>* {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  input, textarea {
+    color: white;
+  }
+}
