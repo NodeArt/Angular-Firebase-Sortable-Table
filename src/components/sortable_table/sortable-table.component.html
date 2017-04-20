@@ -14,9 +14,8 @@
             {{ option.text }}
         </md-option>
     </md-select>
-
     <span class="flex"></span>
-    <md-select *ngIf="filterBySelect"
+    <md-select class="filter-select" *ngIf="filterBySelect"
                [placeholder]="filterBySelect?.placeholder"
                (change)="filterBySelectChanged($event)"
                [(ngModel)]="filterBySelect.defaultOption">

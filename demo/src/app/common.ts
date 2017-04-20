@@ -8,15 +8,14 @@ export class Common implements TableItem {
         event.target.style.opacity = 1;
     }
     public getImage() {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://randomuser.me/api/?inc=picture', true);
-            xhr.send();
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    resolve(JSON.parse(xhr.response)['results'][0]['picture']['thumbnail']);
-                }
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://randomuser.me/api/?inc=picture', true);
+        xhr.send();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                this.imageUrl = JSON.parse(xhr.response)['results'][0]['picture']['thumbnail'];
             }
-        })
+        }
+        xhr.onerror = () => this.imageUrl = '';
     }
 }

@@ -11,7 +11,7 @@ export class EmployerItemComponent extends Common implements OnInit {
   }
 
   ngOnInit() {
-    this.getImage().then((url : string) => this.imageUrl = url)
+    this.getImage();
   }
   
 }

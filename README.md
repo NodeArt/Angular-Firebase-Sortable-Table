@@ -1,8 +1,8 @@
-# **Angular 2+ Firebase Sortable Table**
+# **Angular Firebase Sortable Table**
 
-## **What is Angular 2+ Firebase Sortable Table (AFT)?**
+## **What is Angular Firebase Sortable Table (AFT)?**
 
-**AFT** is A2+ module giving a solution for common problem - creation a table with firebase as a backend. 
+**AFT** is Angular module giving a solution for common problem - creation a table with firebase as a backend. 
 It was decided to avoid using third part services as 
 [firebase cloud functions](https://firebase.google.com/docs/functions/) or writing own
 observer servers using [node](https://nodejs.org/en/). Before you start it is strongly recommended to read an 

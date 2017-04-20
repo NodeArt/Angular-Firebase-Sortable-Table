@@ -77,9 +77,13 @@
 .main-container {
   overflow-y: auto;
   height: calc(100% - 170px);
+  position: relative;
 }
 
 header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
   padding: 0 10px;
   md-input-container {
     width: 100%;
@@ -88,12 +92,9 @@ header {
   input {
     color: black;
   }
-}
-
-header {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
+  .filter-select {
+    width: 100%;
+  }
 }
 
 .flex {
