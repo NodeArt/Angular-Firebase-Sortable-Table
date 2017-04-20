@@ -1,5 +1,5 @@
 import {
-    Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges, VERSION
+    Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
 } from '@angular/core';
 import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
 import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/sortable-table.model";
@@ -30,7 +30,6 @@ export class SortableTableComponent implements OnChanges {
     public headers: Array<HeaderItem>;
     public fieldToSortBy: string;
     public isFirstTime: boolean = true;
-    public version = Number(VERSION.major);
     constructor(public DB: SortableTableService) { }
 
     public ngOnChanges(changes: SimpleChanges): void {

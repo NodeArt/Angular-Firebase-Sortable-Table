@@ -97,10 +97,8 @@ of headers you'd prefer not to show.
 use `this` keyword in this function.
 As child component doesn't not know who his parent actually is, we can't use [`forward ref`](http://stackoverflow.com/a/35154016)
 to done this.
-- As Angular 4 is released and `<template></template>` element is deprecated and will be replaced with `<ng-template></ng-template>`
-in Angular 5 AFST will not use `<template></template>` anymore but for compatibility reasons there is an `*ngIf` directive
-that switch between `<ng-template></ng-template>` and `<template></template>` depending on the Angular version.
-But this feature will be removed soon.
+- As Angular 4 is released and `<template></template>` element is deprecated and will be replaced with `<ng-template></ng-template>`.
+We use `<ng-template></ng-template>` so this module is incompatible with Angular 2.
  
    
 ## List of dependencies:
