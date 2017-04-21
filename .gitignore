@@ -4,3 +4,4 @@ demo/.idea/
 demo/node_modules/
 demo/dist/
 npm_debug.log
+package/

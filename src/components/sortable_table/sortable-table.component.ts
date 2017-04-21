@@ -2,7 +2,7 @@ import {
     Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
 } from '@angular/core';
 import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
-import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/sortable-table.model";
+import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/";
 import { Observable } from "rxjs";
 
 declare const require: any;

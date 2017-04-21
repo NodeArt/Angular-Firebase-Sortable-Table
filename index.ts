@@ -5,6 +5,6 @@ export { InfiniteScrollDirective } from "./src/directives/infinite-scroll.direct
 export { PriorityKeysPipe } from "./src/pipes/priority-keys.pipe";
 export { SortableTableService } from "./src/services/sortable-table.service";
 
-export * from "./src/models/sortable-table.model";
+export * from "./src/models/";
 
 export { NgFbSortableTableModule } from "./src/sortable-table.module";
