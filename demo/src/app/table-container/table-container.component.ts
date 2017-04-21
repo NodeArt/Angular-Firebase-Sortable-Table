@@ -20,24 +20,24 @@ import { PeoplePriority, EmployersPriority } from "./enums";
 export class TableContainerComponent implements AfterViewInit {
   @ViewChild('sidenav') public sidenav;
   @ViewChild('toggler') public toggler;
-  private isSidenavOpen = true;
-  private toFetch: string;
-  private sideNavItems: Array<{name: string, toFetch: string}>;
-  private itemComponent: Component = EmployeeItemComponent;
-  private pagination: Pagination = {
+  public isSidenavOpen = true;
+  public toFetch: string;
+  public sideNavItems: Array<{name: string, toFetch: string}>;
+  public itemComponent: Component = EmployeeItemComponent;
+  public pagination: Pagination = {
     placeholder: 'Upload length',
     defaultOption: 20,
     options: [20, 50, 100]
   };
-  private filterBySelect: TableFilter | null;
-  private filterByInputValue: SearchString | null;
-  private addNew: Component | null;
-  private afterPopupClose: Function | null;
+  public filterBySelect: TableFilter | null;
+  public filterByInputValue: SearchString | null;
+  public addNew: Component | null;
+  public afterPopupClose: Function | null;
   constructor(
-      private router: Router,
-      private route: ActivatedRoute,
-      private keysPipe: PriorityKeysPipe,
-      private dialog: MdDialog
+      public router: Router,
+      public route: ActivatedRoute,
+      public keysPipe: PriorityKeysPipe,
+      public dialog: MdDialog
   ) {
     this.setHeaders = this.setHeaders.bind(this);
 
@@ -170,9 +170,10 @@ export class TableContainerComponent implements AfterViewInit {
       const arr = Object.keys(value);
       if (arr.length) {
         const data = Object.assign({}, value[Object.keys(value)[0]]);
+        const notSortable = ['cv', 'address', 'phone'];
         const arr = this.keysPipe
             .transform(data, priority)
-            .map((elem) => ({name : elem, sortable: elem !== 'cv'}));
+            .map((elem) => ({name : elem, sortable: notSortable.indexOf(elem) === -1}));
 
         if (this.toFetch === 'employers') {
           arr.push({name: 'delete', sortable: false});
