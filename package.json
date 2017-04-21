@@ -8,7 +8,7 @@
     "create-demo": "ng new demo --style scss --routing true",
     "demo": "cd ./demo && npm i && npm start",
     "prebuild-docs": "cd ./src",
-      "build-docs": "compodoc -p tsconfig.json -d docs --theme postmark -n NGFB-Sortable-Table",
+      "build-docs": "compodoc src -p tsconfig.json -d docs --theme postmark -n NGFB-Sortable-Table",
     "preserve-docs" : "npm run build-docs",
     "serve-docs": "compodoc -s -d docs"
   },
