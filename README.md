@@ -8,18 +8,24 @@ It was decided to avoid using third part services as
 observer servers using [node](https://nodejs.org/en/). Before you start it is strongly recommended to read an 
 [this](https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data) article.
 
-## Demo 
+## Getting started
+**AFST** is supplied with [small demo](https://ngfb-sortable-table-demo.firebaseapp.com/) ([source](./demo/src)) 
+that shows abilities of sortable table and the way one will use it. In order to start demo locally run `npm run demo`.
 
-In order to start demo run `npm run demo` or [see it](https://ngfb-sortable-table-demo.firebaseapp.com/) in action
+Note: npm package is not suplied with demo source code, so visit 
+[github page](https://github.com/NodeArt/Angular-Firebase-Sortable-Table) to see it.
 
 ## List of components:
+For full documentation of each component please visit [this page]().
 
-- [`SortableTableComponent`]() [doc](./docs/sortable_table_component.md)
-- [`SortableTableService`]() [doc](./docs/sortable_table_service.md)
-- [`SortableItemDirective`]() [doc](./docs/sortable_item_directive.md)
-- [`DialogDirective`]() [doc](./docs/dialog_directive.md)
-- [`InfiniteScrollDirective`]() [doc](./docs/infinite_scroll_directive.md)
-- [`PriorityKeysPipe`]() [doc](./docs/priority_keys_pipe.md)
+Sources:
+- [`SortableTableComponent`](./src/components/sortable_table/)
+- [`LoadingComponent`](./src/components/loading/)
+- [`SortableTableService`](./src/services/sortable-table.service.ts)
+- [`SortableItemDirective`](./src/directives/sortable-item.directive.ts)
+- [`DialogDirective`](./src/directives/dialog.directive.ts)
+- [`InfiniteScrollDirective`](./src/directives/infinite-scroll.directive.ts)
+- [`PriorityKeysPipe`](./src/pipes/priority-keys.pipe.ts)
 
 ## Install:
 
@@ -29,13 +35,12 @@ In order to start demo run `npm run demo` or [see it](https://ngfb-sortable-tabl
 Module is supplied with set of features that could be useful while working with tables such as
 search, sort, filter and infinite scroll.
 Due to limitations of firebase querying there are no complicated logic under the hood.
-According to firebase documentation one can use only one `orderBy` query at a time.
-
-## [Basic Usage](./docs/basic_usage.md)
+According to firebase documentation one can use only one `orderBy` query at a time, so, unfortunately you can not
+combine filters.
  
 ## Events table:
 
-There are **4** types of events could have happen. Each of them has its own querying rules and
+There are **4** types of events could happen. Each of them has its own querying rules and
 usage restrictions.
 
 |Events |InfiniteScroll | SortByHeader | FilterByInput |  FilterBySelect |
@@ -47,11 +52,11 @@ usage restrictions.
 ## Events details: 
 - **InfiniteScroll:**
 
-   InfiniteScroll is a default event and first request to database will be done with it if no config for `FilterBySelect`
-   provided; It is **the only** event that doesn't reset previous query, only add the offset. 
+   InfiniteScroll is a default event. First request to database will be done with it if no config for `FilterBySelect`
+   provided. It is **the only** event that doesn't reset previous query, only add the offset.
    Fires when user is reached the bottom of the page.
    
-   Restrictions:
+   Requirements:
     - `@Input pagination` is passed;
    
 - **SortByHeader:**
@@ -62,7 +67,8 @@ usage restrictions.
     - field to be sorted by has primitive value;
     - field to be sorted by is not nested inside the object;
   
-   Resets other queries. 
+   Resets other queries.
+   
 - **FilterByInput:**
 
    FilterByInput is an event happen when user input some data in a search string. Input is debounced by default.
@@ -70,6 +76,8 @@ usage restrictions.
    Restrictions:
     - field to be filtered by is a string;
     - field to be sorted by is not nested inside the object;
+    
+   Requirements:
     - `@Input filterByInputValue` is passed in;
    
    Resets other queries.
@@ -81,9 +89,32 @@ usage restrictions.
    Restrictions:
     - field to be filtered by has primitive value;
     - field to be filtered by is not nested inside the object;
+    
+   Requirements:
     - `@Input filterBySelect` is passed in;
    
    Resets other queries.
+   
+## User components communication:
+
+**AFST** is designed for following components structure:
+
+```html
+<user-table-container-component>
+    <ngfb-sortable-table>
+        <!--<ng-template ngfbSortableItem></ng-template>-->
+        <tr UserTableItemComponent></tr>
+    </ngfb-sortable-table>
+</table-container-component>
+```
+According to this structure you can not directly communicate between your components.
+In order to do so, you can provide an `@Input onChange: Function` to `SortableTableComponent` and it will be
+called in two cases:
+- Popup with [`@Input addNew: Component`](./demo/src/app/table-container/table-container.component.html) 
+(passed to `SortableTableComponent`) close. [Example](./demo/src/app/new-person)
+- User emits event from `UserTableItemComponent`. [Example](./demo/src/app/employer-item).
+
+Do not forget to bind your `onChange` function to your component context in order to save it. 
    
 ## Usage tips:
  

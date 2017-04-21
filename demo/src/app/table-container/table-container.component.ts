@@ -167,5 +167,4 @@ export class TableContainerComponent {
       }
     })
   }
-
 }
