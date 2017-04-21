@@ -148,11 +148,11 @@ export class SortableTableService {
         })
         .map(({key, value} : {key : string, value: Array<any>}): any => {
           if (
-              (event === SortableEvents.SortByField && fieldToQueryBy.order === 'desc') ||
+              (event === SortableEvents.SortByField && fieldToQueryBy.order === 'asc') ||
               (event === SortableEvents.InfiniteScroll &&
               this.lastSort &&
               this.lastSort.order &&
-              this.lastSort.order === 'desc')
+              this.lastSort.order === 'asc')
           ) {
               value = value.reverse();
           //filter by input string
