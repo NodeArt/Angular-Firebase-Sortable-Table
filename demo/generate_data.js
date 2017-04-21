@@ -40,12 +40,12 @@ const employersFactory = function(i) {
 };
 
 let counter = 199;
-const people = DB.ref('people');
+const employees = DB.ref('employees');
 const employers = DB.ref('employers');
 
 for (let i = 0; i < 200; i++) {
   Promise.all([
-    people.push(peoplesFactory(i)),
+    employees.push(peoplesFactory(i)),
     employers.push(employersFactory(i))
   ]).then(() => {
     --counter;

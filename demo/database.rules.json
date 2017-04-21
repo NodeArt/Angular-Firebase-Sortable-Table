@@ -1,6 +1,12 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "false"
+    ".write": "false",
+    "employees": {
+      ".indexOn": ["name", "age", "gender", "country", "job", "cv", "inSearch", "favoriteFramework"]
+    },
+    "employers" : {
+      ".indexOn" : ["name" ,"country", "address", "phone", "lookingFor", "email"]
+    }
   }
 }

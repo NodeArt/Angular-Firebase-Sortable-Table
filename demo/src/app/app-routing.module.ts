@@ -9,8 +9,8 @@ const routes: Routes = [
     data: {
       tables: [
         {
-          name: 'People List',
-          toFetch: 'people'
+          name: 'Employees List',
+          toFetch: 'employees'
         },
         {
           name: 'Employers List',
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'app/people'
+    redirectTo: 'app/employees'
   }
 ];
 

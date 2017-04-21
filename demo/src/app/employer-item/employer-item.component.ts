@@ -4,7 +4,7 @@ import { AlertComponent } from "../alert/alert.component";
 @Component({
   selector: 'tr [app-employer-item]',
   templateUrl: './employer-item.component.html',
-  styleUrls: ['./employer-item.component.scss', '../item.scss']
+  styleUrls: ['../item.scss']
 })
 export class EmployerItemComponent extends Common implements OnInit {
   private component: Component = AlertComponent;

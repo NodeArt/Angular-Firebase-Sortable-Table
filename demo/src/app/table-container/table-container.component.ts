@@ -5,7 +5,7 @@ import { Pagination, TableFilter, SearchString, PriorityKeysPipe, HeaderItem } f
 import { Observable } from "rxjs";
 
 import { EmployerItemComponent } from "../employer-item/employer-item.component";
-import { PeopleItemComponent } from "../people-item/people-item.component";
+import { EmployeeItemComponent } from "../employee-item/employee-item.component";
 import { NewPersonComponent } from "../new-person/new-person.component";
 import { AlertComponent } from "../alert/alert.component";
 
@@ -20,7 +20,7 @@ import { PeoplePriority, EmployersPriority } from "./enums";
 export class TableContainerComponent {
   private toFetch: string;
   private sideNavItems: Array<{name: string, toFetch: string}>;
-  private itemComponent: Component = PeopleItemComponent;
+  private itemComponent: Component = EmployeeItemComponent;
   private pagination: Pagination = {
     placeholder: 'Upload length',
     defaultOption: 20,
@@ -46,8 +46,8 @@ export class TableContainerComponent {
 
     route.params.subscribe((params : Params) => {
       this.toFetch = params['param'];
-      if (this.toFetch === 'people') {
-        this.itemComponent = PeopleItemComponent;
+      if (this.toFetch === 'employees') {
+        this.itemComponent = EmployeeItemComponent;
         this.filterBySelect = {
           field: 'favoriteFramework',
           defaultOption: null,
@@ -147,7 +147,7 @@ export class TableContainerComponent {
 
   setHeaders(obs: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> {
     let priority;
-    if (this.toFetch === 'people') {
+    if (this.toFetch === 'employees') {
       priority = PeoplePriority;
     } else if (this.toFetch === 'employers') {
       priority = EmployersPriority;

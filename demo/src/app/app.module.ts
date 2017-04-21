@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgFbSortableTableModule } from '@nodeart/ngfb_sortable_table';
 import { TableContainerComponent } from './table-container/table-container.component';
-import { PeopleItemComponent } from './people-item/people-item.component';
+import { EmployeeItemComponent } from './employee-item/employee-item.component';
 import { EmployerItemComponent } from './employer-item/employer-item.component';
 import { NewPersonComponent } from "./new-person/new-person.component";
 import { AlertComponent } from './alert/alert.component';
@@ -32,7 +32,7 @@ initializeApp(config);
   declarations: [
     AppComponent,
     TableContainerComponent,
-    PeopleItemComponent,
+    EmployeeItemComponent,
     EmployerItemComponent,
     NewPersonComponent,
     AlertComponent,
@@ -48,7 +48,7 @@ initializeApp(config);
     MaterialModule.forRoot(),
   ],
   entryComponents: [
-    PeopleItemComponent,
+    EmployeeItemComponent,
     EmployerItemComponent,
     NewPersonComponent,
     AlertComponent
