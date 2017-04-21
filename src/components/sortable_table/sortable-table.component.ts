@@ -128,7 +128,7 @@ export class SortableTableComponent implements OnChanges {
 
         if (this.isFirstTime) {
             const mapper = (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> =>
-                data.map(({key, value}) => {
+                data.map(({value}) => {
                     const keys = Object.keys(value);
                     if (keys.length) {
                         const data = value[Object.keys(value)[0]];

@@ -1,15 +1,11 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'ngfb-loading',
-    template: `
-        <div class="loading" [class.show]="isLoading">
-            <md-progress-bar mode="indeterminate"></md-progress-bar>
-        </div>
-    `,
+    template: `<md-progress-bar mode="indeterminate"></md-progress-bar>`,
     styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent {
-    @Input('isLoading') isLoading: boolean;
+    @HostBinding('class.show') @Input('isLoading') isLoading: boolean = true;
     constructor() { }
 }

@@ -145,14 +145,14 @@ export class TableContainerComponent {
     });
   }
 
-  setHeaders(obs: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> {
+  public setHeaders (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> {
     let priority;
     if (this.toFetch === 'employees') {
       priority = PeoplePriority;
     } else if (this.toFetch === 'employers') {
       priority = EmployersPriority;
     }
-    return obs.map(({key, value}): Array<HeaderItem> => {
+    return data.map(({value}): Array<HeaderItem> => {
       const arr = Object.keys(value);
       if (arr.length) {
         const data = Object.assign({}, value[Object.keys(value)[0]]);

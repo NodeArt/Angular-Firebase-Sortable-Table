@@ -13,8 +13,8 @@ export class SortableTableService {
   public lastItemGot: Object;
   public lastEventHappened: number;
   public lastSort: FieldToQueryBy | null;
-  public order: string;
   public pagination: number;
+
   constructor() { }
 
   public setLimit(first, number) {
@@ -113,8 +113,8 @@ export class SortableTableService {
       this.lastItemGot = null;
       this.lastKeyGot = null;
     }
-    const prevLastItem = Object.assign({}, this.lastItemGot || {}),
-          prevLastKey  = this.lastKeyGot;
+
+    const prevLastKey = this.lastKeyGot;
 
     this.preGet(event, fieldToQueryBy);
     return Observable.fromPromise(this.querify(this.DB['ref'](path)).once('value') as Promise<any>)
@@ -147,7 +147,6 @@ export class SortableTableService {
           return ({key : snapshot['key'], value : data})
         })
         .map(({key, value} : {key : string, value: Array<any>}): any => {
-          //reverse
           if (
               (event === SortableEvents.SortByField && fieldToQueryBy.order === 'desc') ||
               (event === SortableEvents.InfiniteScroll &&
@@ -155,7 +154,7 @@ export class SortableTableService {
               this.lastSort.order &&
               this.lastSort.order === 'desc')
           ) {
-            value = value.reverse();
+              value = value.reverse();
           //filter by input string
           } else if (event === SortableEvents.FilterBySearch) {
             value = value.filter(

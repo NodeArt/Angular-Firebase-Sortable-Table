@@ -6,8 +6,6 @@ export interface HeaderItem {
     sortable: boolean;
 }
 
-export type AfterPopupCloseFunction = (items: Array<any>, ...args : Array<any>) => void;
-
 export type SetHeadersFunction = (data : Observable<{key: string, value : Array<any>}>) => Observable<Array<HeaderItem>>;
 
 export interface SearchString {

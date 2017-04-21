@@ -5,16 +5,6 @@ export { InfiniteScrollDirective } from "./src/directives/infinite-scroll.direct
 export { PriorityKeysPipe } from "./src/pipes/priority-keys.pipe";
 export { SortableTableService } from "./src/services/sortable-table.service";
 
-export {
-    HeaderItem,
-    AfterPopupCloseFunction,
-    SetHeadersFunction,
-    SearchString,
-    TableFilterOption,
-    TableFilter,
-    Pagination,
-    FieldToQueryBy,
-    TableItem
-} from "./src/models/sortable-table.model";
+export * from "./src/models/sortable-table.model";
 
 export { NgFbSortableTableModule } from "./src/sortable-table.module";
