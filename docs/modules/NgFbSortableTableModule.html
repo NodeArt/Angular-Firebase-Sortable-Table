@@ -461,7 +461,22 @@
                     <h3>Declarations<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#declarations-anchor" target="_blank"><span class="fa fa-info-circle"></span></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="../s/declarations.().html">declarations.()</a>
+                                <a href="../components/SortableTableComponent.html">SortableTableComponent</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="../components/LoadingComponent.html">LoadingComponent</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="../directives/SortableItemDirective.html">SortableItemDirective</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="../directives/DialogDirective.html">DialogDirective</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="../directives/InfiniteScrollDirective.html">InfiniteScrollDirective</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="../pipes/PriorityKeysPipe.html">PriorityKeysPipe</a>
                             </li>
                     </ul>
                 </div>
@@ -517,20 +532,15 @@ import { PriorityKeysPipe } from &quot;./pipes/priority-keys.pipe&quot;;
 
 import { SortableTableService } from &quot;./services/sortable-table.service&quot;;
 
-
-export function declarations() {
-  return [
+@NgModule({
+  declarations: [
     SortableTableComponent,
     LoadingComponent,
     SortableItemDirective,
     DialogDirective,
     InfiniteScrollDirective,
     PriorityKeysPipe
-  ];
-}
-
-@NgModule({
-  declarations: declarations(),
+  ],
   exports: [
     SortableTableComponent,
     LoadingComponent,

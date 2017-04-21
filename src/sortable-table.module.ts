@@ -15,20 +15,15 @@ import { PriorityKeysPipe } from "./pipes/priority-keys.pipe";
 
 import { SortableTableService } from "./services/sortable-table.service";
 
-
-export function declarations() {
-  return [
+@NgModule({
+  declarations: [
     SortableTableComponent,
     LoadingComponent,
     SortableItemDirective,
     DialogDirective,
     InfiniteScrollDirective,
     PriorityKeysPipe
-  ];
-}
-
-@NgModule({
-  declarations: declarations(),
+  ],
   exports: [
     SortableTableComponent,
     LoadingComponent,
