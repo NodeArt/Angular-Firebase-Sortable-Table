@@ -1,5 +1,6 @@
 .idea/
-node_modules
-demo
+node_modules/
+demo/
+docs/
 npm-debug.log
 package/
