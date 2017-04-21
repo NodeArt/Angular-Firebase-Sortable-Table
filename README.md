@@ -110,9 +110,9 @@ usage restrictions.
 According to this structure you can not directly communicate between your components.
 In order to do so, you can provide an `@Input onChange: Function` to `SortableTableComponent` and it will be
 called in two cases:
-- Popup with [`@Input addNew: Component`](./demo/src/app/table-container/table-container.component.html) 
-(passed to `SortableTableComponent`) close. [Example](./demo/src/app/new-person)
-- User emits event from `UserTableItemComponent`. [Example](./demo/src/app/employer-item).
+- Popup with [`@Input addNew: Component`](./demo/src/app/table-container//table-container.component.html#L27) 
+(passed to `SortableTableComponent`) close. [Example](./demo/src/app/new-person/new-person.component.ts#L37)
+- User emits event from `UserTableItemComponent`. [Example](./demo/src/app/employer-item/employer-item.component.ts#L22).
 
 Do not forget to bind your `onChange` function to your component context in order to save it. 
    

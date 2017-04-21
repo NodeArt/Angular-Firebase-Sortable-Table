@@ -15,11 +15,10 @@ const routes: Routes = [
         {
           name: 'Employers List',
           toFetch: 'employers'
-        },
+        }
       ]
-    },
-  },
-  {
+    }
+  }, {
     path: '**',
     redirectTo: 'app/employees'
   }
