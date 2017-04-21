@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { MdDialogRef, MdDialog, MdDialogConfig } from "@angular/material";
 import { Pagination, TableFilter, SearchString, PriorityKeysPipe, HeaderItem } from "@nodeart/ngfb_sortable_table";
@@ -17,7 +17,10 @@ import { PeoplePriority, EmployersPriority } from "./enums";
   styleUrls: ['./table-container.component.scss'],
   providers : [ PriorityKeysPipe ]
 })
-export class TableContainerComponent {
+export class TableContainerComponent implements AfterViewInit {
+  @ViewChild('sidenav') public sidenav;
+  @ViewChild('toggler') public toggler;
+  private isSidenavOpen = true;
   private toFetch: string;
   private sideNavItems: Array<{name: string, toFetch: string}>;
   private itemComponent: Component = EmployeeItemComponent;
@@ -141,6 +144,15 @@ export class TableContainerComponent {
         }
       }
     });
+  }
+
+  public ngAfterViewInit() {
+    Observable
+        .fromEvent(this.toggler['_elementRef']['nativeElement'], 'click')
+        .subscribe(() => {
+          this.sidenav.toggle(!this.isSidenavOpen);
+          this.isSidenavOpen = !this.isSidenavOpen;
+        })
   }
 
   public toDocs() {

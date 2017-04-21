@@ -8,11 +8,11 @@ import { Common } from "../common";
   styleUrls: ['./new-person.component.scss']
 })
 export class NewPersonComponent implements OnInit {
-  private form: FormGroup;
-  private imageUrl: string;
+  public form: FormGroup;
+  public imageUrl: string;
   constructor(
-      private FB: FormBuilder,
-      private dialogRef: MdDialogRef<NewPersonComponent>,
+      public FB: FormBuilder,
+      public dialogRef: MdDialogRef<NewPersonComponent>,
   ) { }
 
   ngOnInit() {
