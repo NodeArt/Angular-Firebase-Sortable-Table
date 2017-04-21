@@ -5,14 +5,19 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDemo": "ng new demo --style scss --routing true",
-    "demo" : "cd ./demo && npm i && npm start"
+    "create-demo": "ng new demo --style scss --routing true",
+    "demo": "cd ./demo && npm i && npm start",
+    "prebuild-docs": "cd ./src",
+      "build-docs": "compodoc -p tsconfig.json -d docs --theme postmark -n NGFB-Sortable-Table",
+    "preserve-docs" : "npm run build-docs",
+    "serve-docs": "compodoc -s -d docs"
   },
   "keywords": [
     "angular",
     "firebase",
     "table"
   ],
+  "repository": "https://github.com/NodeArt/Angular-Firebase-Sortable-Table",
   "author": "Ivan Prodaiko",
   "license": "MIT",
   "devDependencies": {
@@ -21,6 +26,7 @@
     "@angular/forms": "^4.0.2",
     "@angular/http": "^4.0.2",
     "@angular/platform-browser": "^4.0.2",
+    "@compodoc/compodoc": "^1.0.0-beta.4",
     "rxjs": "^5.3.0",
     "zone.js": "^0.8.5"
   },

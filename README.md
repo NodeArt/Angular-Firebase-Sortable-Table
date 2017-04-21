@@ -99,13 +99,13 @@ usage restrictions.
 
 **AFST** is designed for following components structure:
 
-```html
+```angular2html
 <user-table-container-component>
     <ngfb-sortable-table>
         <!--<ng-template ngfbSortableItem></ng-template>-->
-        <tr UserTableItemComponent></tr>
+        <tr UserTableItemComponent> </tr>
     </ngfb-sortable-table>
-</table-container-component>
+</user-table-container-component>
 ```
 According to this structure you can not directly communicate between your components.
 In order to do so, you can provide an `@Input onChange: Function` to `SortableTableComponent` and it will be
