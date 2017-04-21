@@ -1,0 +1,1513 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>NGFB-Sortable-Table</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+                 <link rel="stylesheet" href="../styles/postmark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">NGFB-Sortable-Table</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">NGFB-Sortable-Table</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/NgFbSortableTableModule.html" >NgFbSortableTableModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/LoadingComponent.html" >LoadingComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SortableTableComponent.html"  class="active" >SortableTableComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-directives-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="../directives/DialogDirective.html" >DialogDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/InfiniteScrollDirective.html" >InfiniteScrollDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../directives/SortableItemDirective.html" >SortableItemDirective</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/TableItem.html" >TableItem</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/SortableTableService.html" >SortableTableService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/FieldToQueryBy.html" >FieldToQueryBy</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/HeaderItem.html" >HeaderItem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/Pagination.html" >Pagination</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/SearchString.html" >SearchString</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/TableFilter.html" >TableFilter</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/TableFilterOption.html" >TableFilterOption</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-plus"></span>
+                            <span>Pipes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-pipes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-pipes-links"
+                            >
+                                <li class="link">
+                                    <a href="../pipes/PriorityKeysPipe.html" >PriorityKeysPipe</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">NGFB-Sortable-Table</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/NgFbSortableTableModule.html" >NgFbSortableTableModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/LoadingComponent.html" >LoadingComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SortableTableComponent.html"  class="active" >SortableTableComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#directives-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="../directives/DialogDirective.html" >DialogDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/InfiniteScrollDirective.html" >InfiniteScrollDirective</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../directives/SortableItemDirective.html" >SortableItemDirective</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/TableItem.html" >TableItem</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/SortableTableService.html" >SortableTableService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/FieldToQueryBy.html" >FieldToQueryBy</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/HeaderItem.html" >HeaderItem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/Pagination.html" >Pagination</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/SearchString.html" >SearchString</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/TableFilter.html" >TableFilter</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/TableFilterOption.html" >TableFilterOption</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-plus"></span>
+                                   <span>Pipes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#pipes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="pipes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../pipes/PriorityKeysPipe.html" >PriorityKeysPipe</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SortableTableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab" data-link="infos">Infos</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+    </li>
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/components/sortable_table/sortable-table.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnChanges-interface.html" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ngfb-sortable-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>sortable-table.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>sortable-table.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>addNew</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/Component-decorator.html" target="_blank" >Component</a></code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>databaseDataPath</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>string</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:19</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>filterByInputValue</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>SearchString</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:22</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>filterBySelect</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>TableFilter</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:23</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>itemComponent</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code><a href="../classes/TableItem.html" target="_self" >TableItem</a></code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:24</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>onChange</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>Function</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:25</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>pagination</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>Pagination</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:21</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>setHeaders</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>SetHeadersFunction</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:20</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>title</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>string</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:18</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
+
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(DB: <a href="../injectables/SortableTableService.html">SortableTableService</a>)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:32</a></div>
+                            </td>
+                        </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> ngOnChanges</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>ngOnChanges(changes: <a href="https://angular.io/docs/ts/latest/api/core/index/SimpleChanges-interface.html" target="_blank">SimpleChanges</a>)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:35</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> reset</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>reset(nextEvent: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:71</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> filterBySelectChanged</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>filterBySelectChanged($event: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:99</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> paginationChanged</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>paginationChanged(value: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:109</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> fetchData</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>fetchData(event: number, fieldToQueryBy: FieldToQueryBy, cleanUp: boolean)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:114</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> onInfinite</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>onInfinite()</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:148</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> trackByFn</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>trackByFn(index: any, item: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:158</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>string</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> sortBy</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>sortBy(field: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:162</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> onItemChange</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>onItemChange(result: any)</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:173</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> data</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>data:     <code>any[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:29</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> DB</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>DB:     <code><a href="../injectables/SortableTableService.html" target="_self" >SortableTableService</a></code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> fieldToSortBy</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>fieldToSortBy:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:31</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> headers</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>headers:     <code>HeaderItem[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:30</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> isFirstTime</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>isFirstTime:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>true</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> isLoading</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>isLoading:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:28</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> onSearchInputChanged</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>onSearchInputChanged:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:58</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> searchString</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>searchString:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/components/sortable_table/sortable-table.component.ts:27</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import {
+    Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
+} from &#x27;@angular/core&#x27;;
+import { SortableTableService, SortableEvents } from &quot;../../services/sortable-table.service&quot;;
+import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from &quot;../../models/&quot;;
+import { Observable } from &quot;rxjs&quot;;
+
+declare const require: any;
+
+const debounce &#x3D; require(&#x27;lodash.debounce&#x27;);
+@Component({
+    selector: &#x27;ngfb-sortable-table&#x27;,
+    templateUrl: &#x27;./sortable-table.component.html&#x27;,
+    styleUrls: [&#x27;./sortable-table.component.scss&#x27;],
+    encapsulation: ViewEncapsulation.None,
+})
+export class SortableTableComponent implements OnChanges {
+    @Input() public title: string;
+    @Input() public databaseDataPath: string;
+    @Input() public setHeaders: SetHeadersFunction;
+    @Input() public pagination: Pagination;
+    @Input() public filterByInputValue: SearchString;
+    @Input() public filterBySelect: TableFilter;
+    @Input() public itemComponent: TableItem;
+    @Input() public onChange: Function;
+    @Input() public addNew: Component;
+    @ViewChild(&#x27;searchString&#x27;) public searchString;
+    public isLoading: boolean &#x3D; false;
+    public data: Array&lt;any&gt; &#x3D; [];
+    public headers: Array&lt;HeaderItem&gt;;
+    public fieldToSortBy: string;
+    public isFirstTime: boolean &#x3D; true;
+    constructor(public DB: SortableTableService) { }
+
+    public ngOnChanges(changes: SimpleChanges): void {
+        const pathToFetchChangedTo &#x3D; changes[&#x27;databaseDataPath&#x27;] as SimpleChange;
+        if (pathToFetchChangedTo) {
+            this.DB.lastEventHappened &#x3D; undefined;
+            if (!pathToFetchChangedTo.isFirstChange()) {
+                this.data &#x3D; [];
+                this.fieldToSortBy &#x3D; &#x27;&#x27;;
+            }
+            if (this.pagination) {
+                this.DB.setPagination(this.pagination.defaultOption || 20);
+            }
+            this.isFirstTime &#x3D; true;
+            if (this.filterBySelect) {
+                this.fetchData(SortableEvents.FilterBySelect, {
+                    value: this.filterBySelect.defaultOption,
+                    field: this.filterBySelect.field
+                }, true);
+            } else {
+                this.fetchData();
+            }
+        }
+    }
+
+    public onSearchInputChanged &#x3D; debounce(function ($event) {
+        Observable
+            .of($event[&#x27;srcElement&#x27;][&#x27;value&#x27;])
+            .map(inputVal &#x3D;&gt; inputVal.replace(/\?!.#$[]/g, &#x27;&#x27;))
+            .first()
+            .subscribe(inputVal &#x3D;&gt; {
+                this.fetchData(SortableEvents.FilterBySearch, {
+                    field: this.filterByInputValue.defaultField,
+                    value: inputVal
+                }, true);
+            })
+    }, 500);
+
+    public reset(nextEvent): void {
+        switch (nextEvent) {
+            case SortableEvents.FilterBySearch : {
+                this.fieldToSortBy &#x3D; &#x27;&#x27;;
+                if (this.filterBySelect) {
+                    this.filterBySelect.defaultOption &#x3D; this.filterBySelect.resetTo;
+                }
+                break;
+            }
+            case SortableEvents.FilterBySelect: {
+                this.fieldToSortBy &#x3D; &#x27;&#x27;;
+                if (this.filterByInputValue &amp;&amp; this.searchString) {
+                    this.searchString[&#x27;nativeElement&#x27;].value &#x3D; &#x27;&#x27;;
+                }
+                break;
+            }
+            case SortableEvents.SortByField : {
+                if (this.filterBySelect) {
+                    this.filterBySelect.defaultOption &#x3D; this.filterBySelect.resetTo;
+                }
+                if (this.filterByInputValue &amp;&amp; this.searchString) {
+                    this.searchString[&#x27;nativeElement&#x27;].value &#x3D; &#x27;&#x27;;
+                }
+                break;
+            }
+        }
+    }
+
+    public filterBySelectChanged($event) {
+        if (this.pagination) {
+            this.paginationChanged(this.pagination.defaultOption);
+        }
+        this.fetchData(SortableEvents.FilterBySelect, {
+            value: $event.value,
+            field: this.filterBySelect.field
+        }, true)
+    }
+
+    public paginationChanged(value) {
+        this.pagination.defaultOption &#x3D; value;
+        this.DB.setPagination(value);
+    }
+
+    public fetchData(event? : number, fieldToQueryBy?: FieldToQueryBy, cleanUp?: boolean): void {
+        this.isLoading &#x3D; true;
+        this.reset(event);
+
+        const requestStream &#x3D; this.DB
+            .get(this.databaseDataPath, event, fieldToQueryBy)
+            .share()
+            .first();
+
+        requestStream
+            .map(({key, value}) &#x3D;&gt; Object.keys(value || {}).map(key &#x3D;&gt; value[key]))
+            .do(() &#x3D;&gt; this.isLoading &#x3D; false)
+            .first()   //never lose the link to obj in order to save rendering process
+            .subscribe(arr &#x3D;&gt; cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
+
+        if (this.isFirstTime) {
+            const mapper &#x3D; (data: Observable&lt;{key: string, value : Array&lt;any&gt;}&gt;) : Observable&lt;Array&lt;HeaderItem&gt;&gt; &#x3D;&gt;
+                data.map(({value}) &#x3D;&gt; {
+                    const keys &#x3D; Object.keys(value);
+                    if (keys.length) {
+                        const data &#x3D; value[Object.keys(value)[0]];
+                        return Object.keys(data).map(key &#x3D;&gt; ({name : key, sortable: false}))
+                    }
+                });
+
+            const headers &#x3D; this.setHeaders ? this.setHeaders(requestStream) : mapper(requestStream);
+
+            headers
+                .first()
+                .subscribe((data: Array&lt;HeaderItem&gt;) &#x3D;&gt; this.headers &#x3D; data);
+            this.isFirstTime &#x3D; false;
+        }
+    }
+
+    public onInfinite(): void {
+        if (this.pagination) {
+            this.fetchData(
+                SortableEvents.InfiniteScroll,
+                null,
+                this.DB.lastEventHappened !&#x3D;&#x3D; undefined
+            );
+        }
+    }
+
+    public trackByFn(index, item): string {
+        return item.$key;
+    }
+
+    public sortBy(field): void {
+        this.fieldToSortBy &#x3D; this.fieldToSortBy &#x3D;&#x3D;&#x3D; field ? &#x60;-${field}&#x60; : field;
+        if (this.pagination) {
+            this.paginationChanged(this.pagination.defaultOption);
+        }
+        this.fetchData(SortableEvents.SortByField, {
+            field: field,
+            order: this.fieldToSortBy.startsWith(&#x27;-&#x27;) ? &#x27;desc&#x27; : &#x27;asc&#x27;
+        }, true);
+    }
+
+    public onItemChange(result): void {
+        if (this.onChange) {
+            this.onChange(result);
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;main-toolbar md-elevation-z2&quot; [style.display]&#x3D;&quot;!filterByInputValue &amp;&amp; !filterBySelect &amp;&amp; !title ? &#x27;none&#x27; : &#x27;flex&#x27;&quot;&gt;
+    &lt;h1 *ngIf&#x3D;&quot;title&quot; class&#x3D;&quot;title&quot;&gt;{{title}}&lt;/h1&gt;
+    &lt;md-input-container *ngIf&#x3D;&quot;filterByInputValue&quot;&gt;
+        &lt;input #searchString
+               mdInput
+               [placeholder]&#x3D;&quot;filterByInputValue?.inputPlaceholder&quot;
+               (keyup)&#x3D;&quot;onSearchInputChanged($event)&quot;&gt;
+    &lt;/md-input-container&gt;
+    &lt;md-select *ngIf&#x3D;&quot;filterByInputValue &amp;&amp; filterByInputValue.fields.length &gt; 1&quot; [placeholder]&#x3D;&quot;filterByInputValue?.selectPlaceholder&quot;
+               [(ngModel)]&#x3D;&quot;filterByInputValue.defaultField&quot;&gt;
+        &lt;md-option
+                *ngFor&#x3D;&quot;let option of filterByInputValue.fields&quot;
+                [value]&#x3D;&quot;option.value&quot;&gt;
+            {{ option.text }}
+        &lt;/md-option&gt;
+    &lt;/md-select&gt;
+    &lt;span class&#x3D;&quot;flex&quot;&gt;&lt;/span&gt;
+    &lt;md-select class&#x3D;&quot;filter-select&quot; *ngIf&#x3D;&quot;filterBySelect&quot;
+               [placeholder]&#x3D;&quot;filterBySelect?.placeholder&quot;
+               (change)&#x3D;&quot;filterBySelectChanged($event)&quot;
+               [(ngModel)]&#x3D;&quot;filterBySelect.defaultOption&quot;&gt;
+        &lt;md-option
+                *ngFor&#x3D;&quot;let option of filterBySelect.options&quot;
+                [value]&#x3D;&quot;option.value&quot;&gt;
+            {{ option.text }}
+        &lt;/md-option&gt;
+    &lt;/md-select&gt;
+&lt;/header&gt;
+&lt;main class&#x3D;&quot;main-container&quot; ngfbInfiniteScroll (scrolled)&#x3D;&quot;onInfinite()&quot;&gt;
+    &lt;div class&#x3D;&quot;table-content md-elevation-z2 column-filter&quot;&gt;
+        &lt;table class&#x3D;&quot;table table-header&quot;&gt;
+            &lt;thead *ngIf&#x3D;&quot;headers &amp;&amp; headers.length&quot;&gt;
+            &lt;th *ngFor&#x3D;&quot;let header of headers&quot;&gt;
+                &lt;div&gt;
+                    &lt;p&gt;{{header.name}}&lt;/p&gt;
+                    &lt;button md-mini-fab *ngIf&#x3D;&quot;header.sortable&quot; (click)&#x3D;&quot;sortBy(header.name)&quot;&gt;
+                        &lt;md-icon&gt;{{ fieldToSortBy &#x3D;&#x3D;&#x3D; &#x27;-&#x27; + header.name || fieldToSortBy !&#x3D;&#x3D; header.name ? &#x27;arrow_upward&#x27; : &#x27;arrow_downward&#x27;}}&lt;/md-icon&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/th&gt;
+            &lt;/thead&gt;
+            &lt;tbody *ngIf&#x3D;&quot;data &amp;&amp; data.length&quot;&gt;
+                &lt;ng-template *ngFor&#x3D;&quot;let item of data; let i &#x3D; index; trackBy: trackByFn&quot;
+                          ngfbSortableItem
+                          [item]&#x3D;&quot;item&quot;
+                          [index]&#x3D;&quot;i&quot;
+                          (itemChange)&#x3D;&quot;onItemChange($event)&quot;
+                          [component]&#x3D;&quot;itemComponent&quot;&gt;
+                &lt;/ng-template&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;ngfb-loading [isLoading]&#x3D;&quot;isLoading&quot;&gt;&lt;/ngfb-loading&gt;
+&lt;/main&gt;
+&lt;footer *ngIf&#x3D;&quot;pagination || addNew&quot;&gt;
+    &lt;md-select  *ngIf&#x3D;&quot;pagination&quot; [placeholder]&#x3D;&quot;pagination?.placeholder&quot;
+               (change)&#x3D;&quot;paginationChanged($event.value)&quot;
+               [ngModel]&#x3D;&quot;pagination.defaultOption&quot;&gt;
+        &lt;md-option *ngFor&#x3D;&quot;let option of pagination.options&quot; [value]&#x3D;&quot;option&quot;&gt;{{ option }}&lt;/md-option&gt;
+    &lt;/md-select&gt;
+    &lt;span class&#x3D;&quot;flex&quot;&gt;&lt;/span&gt;
+    &lt;button color&#x3D;&quot;primary&quot;
+            *ngIf&#x3D;&quot;addNew&quot;
+            md-fab
+            ngfbDialog
+            (onDialogResult)&#x3D;&quot;onItemChange($event)&quot;
+            [component]&#x3D;&quot;addNew&quot;&gt;
+        &lt;i class&#x3D;&quot;material-icons&quot;&gt;exposure_plus_1&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header class="main-toolbar md-elevation-z2" [style.display]="!filterByInputValue && !filterBySelect && !title ? \'none\' : \'flex\'">    <h1 *ngIf="title" class="title">{{title}}</h1>    <md-input-container *ngIf="filterByInputValue">        <input #searchString               mdInput               [placeholder]="filterByInputValue?.inputPlaceholder"               (keyup)="onSearchInputChanged($event)">    </md-input-container>    <md-select *ngIf="filterByInputValue && filterByInputValue.fields.length > 1" [placeholder]="filterByInputValue?.selectPlaceholder"               [(ngModel)]="filterByInputValue.defaultField">        <md-option                *ngFor="let option of filterByInputValue.fields"                [value]="option.value">            {{ option.text }}        </md-option>    </md-select>    <span class="flex"></span>    <md-select class="filter-select" *ngIf="filterBySelect"               [placeholder]="filterBySelect?.placeholder"               (change)="filterBySelectChanged($event)"               [(ngModel)]="filterBySelect.defaultOption">        <md-option                *ngFor="let option of filterBySelect.options"                [value]="option.value">            {{ option.text }}        </md-option>    </md-select></header><main class="main-container" ngfbInfiniteScroll (scrolled)="onInfinite()">    <div class="table-content md-elevation-z2 column-filter">        <table class="table table-header">            <thead *ngIf="headers && headers.length">            <th *ngFor="let header of headers">                <div>                    <p>{{header.name}}</p>                    <button md-mini-fab *ngIf="header.sortable" (click)="sortBy(header.name)">                        <md-icon>{{ fieldToSortBy === \'-\' + header.name || fieldToSortBy !== header.name ? \'arrow_upward\' : \'arrow_downward\'}}</md-icon>                    </button>                </div>            </th>            </thead>            <tbody *ngIf="data && data.length">                <ng-template *ngFor="let item of data; let i = index; trackBy: trackByFn"                          ngfbSortableItem                          [item]="item"                          [index]="i"                          (itemChange)="onItemChange($event)"                          [component]="itemComponent">                </ng-template>            </tbody>        </table>    </div>    <ngfb-loading [isLoading]="isLoading"></ngfb-loading></main><footer *ngIf="pagination || addNew">    <md-select  *ngIf="pagination" [placeholder]="pagination?.placeholder"               (change)="paginationChanged($event.value)"               [ngModel]="pagination.defaultOption">        <md-option *ngFor="let option of pagination.options" [value]="option">{{ option }}</md-option>    </md-select>    <span class="flex"></span>    <button color="primary"            *ngIf="addNew"            md-fab            ngfbDialog            (onDialogResult)="onItemChange($event)"            [component]="addNew">        <i class="material-icons">exposure_plus_1</i>    </button></footer></div>'
+    var COMPONENTS = [{'name': 'LoadingComponent', 'selector': 'ngfb-loading'},{'name': 'SortableTableComponent', 'selector': 'ngfb-sortable-table'}];
+    var DIRECTIVES = [{'name': 'DialogDirective', 'selector': '[ngfbDialog]'},{'name': 'InfiniteScrollDirective', 'selector': '[ngfbInfiniteScroll]'},{'name': 'SortableItemDirective', 'selector': '[ngfbSortableItem]'}];
+    var ACTUAL_COMPONENT = {'name': 'SortableTableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>
