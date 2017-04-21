@@ -123,23 +123,22 @@ export class TableContainerComponent {
         this.addNew = null;
         //called it sortable table context, so used arrow function
         this.afterPopupClose = data => {
-          if (data['delete']) {
-            const config: MdDialogConfig = {
-              disableClose: true
-            };
+          console.log(data);
+          const config: MdDialogConfig = {
+            disableClose: true
+          };
 
-            const ref: MdDialogRef<AlertComponent> = dialog.open(
-                AlertComponent,
-                config
-            );
-            
-            ref.componentInstance['data'] = {
-              title: 'Remove person',
-              msg: `${data['name']} will be removed from list`,
-              ok: 'Ok',
-              err: 'Close'
-            };
-          }
+          const ref: MdDialogRef<AlertComponent> = dialog.open(
+              AlertComponent,
+              config
+          );
+
+          ref.componentInstance['data'] = {
+            title: 'Remove employer',
+            msg: `${data['name']} will be removed from list`,
+            ok: 'Ok',
+            err: 'Close'
+          };
         }
       }
     });

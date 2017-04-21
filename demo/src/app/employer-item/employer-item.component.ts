@@ -17,7 +17,9 @@ export class EmployerItemComponent extends Common implements OnInit {
     this.getImage('thumbnail');
   }
 
-  shouldEmployerBeDeleted(data) {
-    this.onItemChange.emit(Object.assign(data, this.item));
+  shouldEmployerBeDeleted(remove) {
+    if (remove) {
+      this.onItemChange.emit(this.item);
+    }
   }
 }
