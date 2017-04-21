@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Common } from "../common";
+
 @Component({
   selector: 'tr [app-employee-item]',
   templateUrl: './employee-item.component.html',

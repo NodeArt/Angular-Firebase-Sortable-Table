@@ -72,7 +72,7 @@ export class TableContainerComponent {
         };
         this.filterByInputValue = {
           defaultField : 'name',
-          inputPlaceholder: 'Filter by name',
+          inputPlaceholder: 'Filter by name (case sensitive)',
           fields: [{
             value: 'name',
             text: 'name'
@@ -108,7 +108,7 @@ export class TableContainerComponent {
         this.filterBySelect = null;
         this.filterByInputValue = {
           defaultField : 'name',
-          inputPlaceholder: 'Filter by name',
+          inputPlaceholder: 'Filter by name (case sensitive)',
           fields: [{
             value: 'name',
             text: 'name'
@@ -123,7 +123,6 @@ export class TableContainerComponent {
         this.addNew = null;
         //called it sortable table context, so used arrow function
         this.afterPopupClose = data => {
-          console.log(data);
           const config: MdDialogConfig = {
             disableClose: true
           };
@@ -142,6 +141,10 @@ export class TableContainerComponent {
         }
       }
     });
+  }
+
+  public toDocs() {
+      window.location.href = 'https://nodeart.github.io/Angular-Firebase-Sortable-Table/modules/NgFbSortableTableModule.html';
   }
 
   public setHeaders (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> {

@@ -22,6 +22,10 @@ button[md-raised-button] {
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: 88%;
+  span {
+    margin: auto;
+  }
 }
 
 

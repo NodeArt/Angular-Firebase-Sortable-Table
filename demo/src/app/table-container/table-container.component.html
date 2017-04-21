@@ -13,6 +13,10 @@
                 *ngFor="let item of sideNavItems"
                 [routerLink]="['/app', item.toFetch]"
                 routerLinkActive="active">{{item.name}}</button>
+        <span></span>
+        <button class="to-docs" md-raised-button
+                [color]="'warn'"
+                (click)="toDocs()">DOCS</button>
       </md-nav-list>
     </div>
 

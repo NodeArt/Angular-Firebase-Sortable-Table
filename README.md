@@ -16,7 +16,8 @@ Note: npm package is not suplied with demo source code, so visit
 [github page](https://github.com/NodeArt/Angular-Firebase-Sortable-Table) to see it.
 
 ## List of components:
-For full documentation of each component please visit [this page]().
+For full documentation of each component please visit 
+[this page](https://nodeart.github.io/Angular-Firebase-Sortable-Table/modules/NgFbSortableTableModule.html).
 
 Sources:
 - [`SortableTableComponent`](./src/components/sortable_table/)

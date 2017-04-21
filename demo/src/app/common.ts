@@ -1,8 +1,27 @@
-import { EventEmitter } from "@angular/core";
 import { TableItem } from "@nodeart/ngfb_sortable_table";
 
+interface Employee {
+    name: string;
+    age: number;
+    gender: string;
+    country: string;
+    job: string;
+    cv: string;
+    inSearch: boolean;
+    favoriteFramework: string;
+}
+
+interface Employer {
+    name: string;
+    country: string;
+    address: string;
+    phone: string;
+    lookingFor: string;
+    email: string;
+}
+
 export class Common implements TableItem {
-    public item: Object;
+    public item: Employee | Employer;
     public index: number;
     public imageUrl: string;
     public loadImg(event): void {

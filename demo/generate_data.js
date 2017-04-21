@@ -15,7 +15,7 @@ const DB = firebase.database();
 
 const chance = new Chance();
 
-const peoplesFactory = function(i) {
+const employeesFactory = function(i) {
   return {
     name: chance.name(),
     age: chance.age(),
@@ -45,7 +45,7 @@ const employers = DB.ref('employers');
 
 for (let i = 0; i < 200; i++) {
   Promise.all([
-    employees.push(peoplesFactory(i)),
+    employees.push(employeesFactory(i)),
     employers.push(employersFactory(i))
   ]).then(() => {
     --counter;
