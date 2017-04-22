@@ -57,7 +57,7 @@ export class SortableTableComponent implements OnChanges {
 
     public onSearchInputChanged = debounce(function ($event) {
         Observable
-            .of($event['srcElement']['value'])
+            .of($event['target']['value'])
             .map(inputVal => inputVal.replace(/\?!.#$[]/g, ''))
             .first()
             .subscribe(inputVal => {
