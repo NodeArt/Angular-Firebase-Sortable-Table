@@ -162,7 +162,7 @@ export class TableContainerComponent implements AfterViewInit {
   public setHeaders (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> {
     let priority;
     if (this.toFetch === 'employees') {
-      priority = PeoplePriority;
+      priority = EmployeePriority;
     } else if (this.toFetch === 'employers') {
       priority = EmployersPriority;
     }
