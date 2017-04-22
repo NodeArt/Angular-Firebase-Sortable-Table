@@ -2,7 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule} from "@angular/material";
+import {
+    MdSidenavModule,
+    MdButtonModule,
+    MdInputModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdIconModule,
+    MdCheckboxModule
+} from "@angular/material";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +44,7 @@ initializeApp(config);
     EmployeeItemComponent,
     EmployerItemComponent,
     NewPersonComponent,
-    AlertComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,13 @@ initializeApp(config);
     HttpModule,
     AppRoutingModule,
     NgFbSortableTableModule,
-    MaterialModule.forRoot(),
+    MdSidenavModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdInputModule,
+    MdIconModule,
+    MdButtonModule,
+    MdCheckboxModule
   ],
   entryComponents: [
     EmployeeItemComponent,

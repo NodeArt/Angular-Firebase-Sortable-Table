@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
-import { MaterialModule, MdIconRegistry } from "@angular/material";
+import {
+    MdIconRegistry,
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdInputModule,
+    MdIconModule,
+    MdButtonModule
+} from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { SortableTableComponent } from "./components/sortable_table/sortable-table.component";
@@ -37,7 +45,12 @@ import { SortableTableService } from "./services/sortable-table.service";
     MdIconRegistry
   ],
   imports: [
-    MaterialModule.forRoot(),
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdInputModule,
+    MdIconModule,
+    MdButtonModule,
     BrowserAnimationsModule,
     CommonModule,
     FormsModule
