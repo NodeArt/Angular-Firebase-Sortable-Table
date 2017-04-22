@@ -16,7 +16,5 @@
       "es2016",
       "dom"
     ],
-    "include": ["src"],
-    "exclude": ["demo"]
   }
 }
