@@ -9,7 +9,7 @@ import { EmployeeItemComponent } from "../employee-item/employee-item.component"
 import { NewPersonComponent } from "../new-person/new-person.component";
 import { AlertComponent } from "../alert/alert.component";
 
-import { PeoplePriority, EmployersPriority } from "./enums";
+import { EmployeePriority, EmployersPriority } from "./enums";
 
 @Component({
   selector: 'app-table-container',

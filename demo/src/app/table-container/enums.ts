@@ -1,4 +1,4 @@
-export enum PeoplePriority {
+export enum EmployeePriority {
     image,
     name,
     age,

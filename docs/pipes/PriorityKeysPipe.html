@@ -445,17 +445,35 @@
             <code>src/pipes/priority-keys.pipe.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Used to help sort and filter data in headers</p>
+
+            </p>
 
 
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 
+/**
+ * Used to help sort and filter data in headers
+ */
+
 @Pipe({
   name: &#x27;ngfbPriorityKeysPipe&#x27;
 })
 export class PriorityKeysPipe implements PipeTransform {
 
+  /**
+   * Sort and filter data passed.
+   * @param value
+   * @param priorityEnum
+   * @param notShowFields
+   * @returns {string[]}
+   */
   transform(value: Object, priorityEnum?: any, notShowFields? : Array&lt;string&gt;) : Array&lt;string&gt; {
     let res &#x3D; Object.keys(value);
     if (priorityEnum) {

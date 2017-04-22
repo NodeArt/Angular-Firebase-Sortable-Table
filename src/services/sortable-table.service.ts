@@ -3,6 +3,21 @@ import { Observable } from  'rxjs';
 import { database } from 'firebase';
 import { FieldToQueryBy } from '../models/';
 
+/**
+ * Events that could happen in NGFBSortableTable process
+ */
+
+export enum SortableEvents {
+    InfiniteScroll = 1,
+    SortByField,
+    FilterBySearch,
+    FilterBySelect
+}
+
+/**
+ * Service that provides querying under the hood of SortableTableComponent
+ */
+
 @Injectable()
 export class SortableTableService {
   public DB: database.Database = database();
@@ -17,14 +32,29 @@ export class SortableTableService {
 
   constructor() { }
 
+    /**
+     * Changes the direction of limit
+     * @param first
+     * @param number
+     */
   public setLimit(first, number) {
     this.query[first ? 'limitToFirst' : 'limitToLast'] = Number(number);
   }
 
+    /**
+     * Changes pagination number
+     * @param pagination
+     */
   public setPagination(pagination: number): void {
     this.pagination = pagination;
   }
 
+    /**
+     * Add ability to transform native firebase querying that uses chaining to object passing like in
+     * [Angularfire](https://github.com/angular/angularfire2)
+     * @param ref
+     * @returns {database.Reference}
+     */
   public querify(ref: database.Reference): any {
     const keys = Object.keys(this.query);
     return keys.reduce((ref, key: string) =>
@@ -35,6 +65,11 @@ export class SortableTableService {
     );
   }
 
+    /**
+     * Control quering before sending request. Handle all possible cases of querying.
+     * @param event
+     * @param fieldToQueryBy
+     */
   public preGet(event?: number, fieldToQueryBy?: FieldToQueryBy) {
     const se = SortableEvents;
     switch (event) {
@@ -108,6 +143,12 @@ export class SortableTableService {
     }
   }
 
+    /**
+     * Function that actually makes a request to database.
+     * @param path
+     * @param event
+     * @param fieldToQueryBy
+     */
   public get(path: string, event?: number, fieldToQueryBy?: FieldToQueryBy) : Observable<any> {
     if (event !== this.lastEventHappened && event !== SortableEvents.InfiniteScroll) {
       this.lastItemGot = null;
@@ -173,11 +214,4 @@ export class SortableTableService {
           }
         })
   }
-}
-
-export enum SortableEvents {
-  InfiniteScroll = 1,
-  SortByField,
-  FilterBySearch,
-  FilterBySelect
 }

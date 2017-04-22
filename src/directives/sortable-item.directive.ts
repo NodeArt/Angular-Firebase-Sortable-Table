@@ -1,5 +1,9 @@
 import {Directive, ViewContainerRef, ComponentFactoryResolver, Input, Output, Component, EventEmitter} from '@angular/core';
 
+/**
+ * Creates TableItemComponent provided by user
+ */
+
 @Directive({
   selector: '[ngfbSortableItem]'
 })

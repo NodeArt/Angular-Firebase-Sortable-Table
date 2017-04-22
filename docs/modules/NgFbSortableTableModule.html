@@ -518,7 +518,15 @@
         <pre class="line-numbers"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { FormsModule } from &quot;@angular/forms&quot;;
-import { MaterialModule, MdIconRegistry } from &quot;@angular/material&quot;;
+import {
+    MdIconRegistry,
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdInputModule,
+    MdIconModule,
+    MdButtonModule
+} from &quot;@angular/material&quot;;
 import { BrowserAnimationsModule } from &quot;@angular/platform-browser/animations&quot;;
 
 import { SortableTableComponent } from &quot;./components/sortable_table/sortable-table.component&quot;;
@@ -554,7 +562,12 @@ import { SortableTableService } from &quot;./services/sortable-table.service&quo
     MdIconRegistry
   ],
   imports: [
-    MaterialModule.forRoot(),
+    MdProgressBarModule,
+    MdDialogModule,
+    MdSelectModule,
+    MdInputModule,
+    MdIconModule,
+    MdButtonModule,
     BrowserAnimationsModule,
     CommonModule,
     FormsModule

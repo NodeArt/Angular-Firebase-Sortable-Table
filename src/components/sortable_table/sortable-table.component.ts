@@ -8,6 +8,24 @@ import { Observable } from "rxjs";
 declare const require: any;
 
 const debounce = require('lodash.debounce');
+
+/**
+ * Utility function for handling headers if there is no @Input setHeaders
+ * @param data
+ */
+const mapper = (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> =>
+    data.map(({value}) => {
+        const keys = Object.keys(value);
+        if (keys.length) {
+            const data = value[Object.keys(value)[0]];
+            return Object.keys(data).map(key => ({name : key, sortable: false}))
+        }
+    });
+
+/**
+ * Main component of the module.
+ */
+
 @Component({
     selector: 'ngfb-sortable-table',
     templateUrl: './sortable-table.component.html',
@@ -32,6 +50,11 @@ export class SortableTableComponent implements OnChanges {
     public isFirstTime: boolean = true;
     constructor(public DB: SortableTableService) { }
 
+    /**
+     * Listen to input changes
+     * @param changes
+     */
+
     public ngOnChanges(changes: SimpleChanges): void {
         const pathToFetchChangedTo = changes['databaseDataPath'] as SimpleChange;
         if (pathToFetchChangedTo) {
@@ -55,6 +78,13 @@ export class SortableTableComponent implements OnChanges {
         }
     }
 
+    /**
+     * If there is an @Input filterByInputValue provided
+     * this method will be triggered on keyup event.
+     * debounce function is much more useful here in comparation with
+     * Observable.debounceTime(timer) because input could be created or deleted dinamically.
+     */
+
     public onSearchInputChanged = debounce(function ($event) {
         Observable
             .of($event['target']['value'])
@@ -67,6 +97,11 @@ export class SortableTableComponent implements OnChanges {
                 }, true);
             })
     }, 500);
+
+    /**
+     * Resets view after other than previous event happened
+     * @param nextEvent
+     */
 
     public reset(nextEvent): void {
         switch (nextEvent) {
@@ -96,6 +131,11 @@ export class SortableTableComponent implements OnChanges {
         }
     }
 
+    /**
+     * Fetch data when user choose some value in filterBySelect
+     * @param $event
+     */
+
     public filterBySelectChanged($event) {
         if (this.pagination) {
             this.paginationChanged(this.pagination.defaultOption);
@@ -106,19 +146,40 @@ export class SortableTableComponent implements OnChanges {
         }, true)
     }
 
+    /**
+     * Change pagination number
+     * @param value
+     */
+
     public paginationChanged(value) {
         this.pagination.defaultOption = value;
         this.DB.setPagination(value);
     }
 
+    /**
+     * Get data from database and parse it accrdingly.
+     * @param event
+     * @param fieldToQueryBy
+     * @param cleanUp
+     */
+
     public fetchData(event? : number, fieldToQueryBy?: FieldToQueryBy, cleanUp?: boolean): void {
         this.isLoading = true;
         this.reset(event);
+
+        /**
+         * This stream whaits for data from db.
+         * @type {"../..Observable".Observable<T>|Observable<R|T>}
+         */
 
         const requestStream = this.DB
             .get(this.databaseDataPath, event, fieldToQueryBy)
             .share()
             .first();
+
+        /**
+         * This stream puts data to view
+         */
 
         requestStream
             .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
@@ -126,16 +187,11 @@ export class SortableTableComponent implements OnChanges {
             .first()   //never lose the link to obj in order to save rendering process
             .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
 
-        if (this.isFirstTime) {
-            const mapper = (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> =>
-                data.map(({value}) => {
-                    const keys = Object.keys(value);
-                    if (keys.length) {
-                        const data = value[Object.keys(value)[0]];
-                        return Object.keys(data).map(key => ({name : key, sortable: false}))
-                    }
-                });
+        /**
+         * Handle headers only once. When path to data in db changes.
+         */
 
+        if (this.isFirstTime) {
             const headers = this.setHeaders ? this.setHeaders(requestStream) : mapper(requestStream);
 
             headers
@@ -144,6 +200,10 @@ export class SortableTableComponent implements OnChanges {
             this.isFirstTime = false;
         }
     }
+
+    /**
+     * InfiniteScroll event litener
+     */
 
     public onInfinite(): void {
         if (this.pagination) {
@@ -155,9 +215,20 @@ export class SortableTableComponent implements OnChanges {
         }
     }
 
+    /**
+     * Function for trackBy in *ngFor directive
+     * @param index
+     * @param item
+     */
+
     public trackByFn(index, item): string {
         return item.$key;
     }
+
+    /**
+     * Sort table by some field
+     * @param field
+     */
 
     public sortBy(field): void {
         this.fieldToSortBy = this.fieldToSortBy === field ? `-${field}` : field;
@@ -169,6 +240,12 @@ export class SortableTableComponent implements OnChanges {
             order: this.fieldToSortBy.startsWith('-') ? 'desc' : 'asc'
         }, true);
     }
+
+    /**
+     * Emits when addNew component close
+     * or when itemChange event happen in TableItemComponent
+     * @param result
+     */
 
     public onItemChange(result): void {
         if (this.onChange) {

@@ -1,6 +1,10 @@
 import {Component, Input, Output, EventEmitter, HostListener, Directive } from '@angular/core';
 import {MdDialogRef, MdDialog, ComponentType, MdDialogConfig} from "@angular/material";
 
+/**
+ * Used for opening popups and alert messages
+ */
+
 @Directive({
     selector: '[ngfbDialog]'
 })

@@ -1,6 +1,10 @@
 import { Directive, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 
+/**
+ * Emits event when user scrolled table to the end
+ */
+
 @Directive({
   selector: '[ngfbInfiniteScroll]'
 })

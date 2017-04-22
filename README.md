@@ -125,8 +125,8 @@ in your database rules.
 order to be properly displayed. Example: `tr [sortableTableItem]`.
 - To sort your headers use `PriorityKeysPipe` and pass **enum** with a list of headers as an argument and the list 
 of headers you'd prefer not to show.
-- Always bind `setHeaders` function to your container component context [(see basic usage)]((./docs/basic_usage.md)) if you
-use `this` keyword in this function.
+- Always bind `setHeaders` function to your container component [context](./demo/src/app/table-container/table-container.component.ts#42) 
+if you use `this` keyword in `setHedaers` function because it will be called in `SortableTableComponent` context.
 As child component doesn't not know who his parent actually is, we can't use [`forward ref`](http://stackoverflow.com/a/35154016)
 to done this.
 - As Angular 4 is released and `<template></template>` element is deprecated and will be replaced with `<ng-template></ng-template>`.

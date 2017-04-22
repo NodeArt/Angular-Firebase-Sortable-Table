@@ -443,6 +443,13 @@
             <code>src/directives/infinite-scroll.directive.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Emits event when user scrolled table to the end</p>
+
+            </p>
 
 
 
@@ -480,7 +487,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-2" colspan="2">
-                                        <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/directives/infinite-scroll.directive.ts:8</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/directives/infinite-scroll.directive.ts:12</a></div>
                                     </td>
                                 </tr>
                         </tbody>
@@ -502,7 +509,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-2" colspan="2">
-                                        <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/directives/infinite-scroll.directive.ts:9</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/directives/infinite-scroll.directive.ts:13</a></div>
                                     </td>
                                 </tr>
                         </tbody>
@@ -520,7 +527,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/directives/infinite-scroll.directive.ts:9</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/directives/infinite-scroll.directive.ts:13</a></div>
                                     </td>
                                 </tr>
             
@@ -534,6 +541,10 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Directive, Input, Output, EventEmitter, ElementRef } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
+
+/**
+ * Emits event when user scrolled table to the end
+ */
 
 @Directive({
   selector: &#x27;[ngfbInfiniteScroll]&#x27;
