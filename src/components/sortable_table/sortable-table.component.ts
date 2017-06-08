@@ -1,7 +1,8 @@
 import {
     Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
 } from '@angular/core';
-import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
+import { DefaultSort, SortableEvents } from '../../models/index';
+import { SortableTableService } from "../../services/sortable-table.service";
 import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/";
 import { Observable } from "rxjs";
 
@@ -42,6 +43,7 @@ export class SortableTableComponent implements OnChanges {
     @Input() public itemComponent: TableItem;
     @Input() public onChange: Function;
     @Input() public addNew: Component;
+    @Input() public defaultSort: DefaultSort | null;
     @ViewChild('searchString') public searchString;
     public isLoading: boolean = false;
     public data: Array<any> = [];
@@ -72,6 +74,9 @@ export class SortableTableComponent implements OnChanges {
                     value: this.filterBySelect.defaultOption,
                     field: this.filterBySelect.field
                 }, true);
+            } else if (this.defaultSort) {
+                this.fieldToSortBy = this.defaultSort.config.field;
+                this.fetchData(this.defaultSort.event, this.defaultSort.config, true);
             } else {
                 this.fetchData();
             }
