@@ -15,13 +15,13 @@ const debounce = require('lodash.debounce');
  * @param data
  */
 const mapper = (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> =>
-  data.map(({value}) => {
-      const keys = Object.keys(value);
-      if (keys.length) {
-          const data = value[Object.keys(value)[0]];
-          return Object.keys(data).map(key => ({name : key, sortable: false}))
-      }
-  });
+    data.map(({value}) => {
+        const keys = Object.keys(value);
+        if (keys.length) {
+            const data = value[Object.keys(value)[0]];
+            return Object.keys(data).map(key => ({name : key, sortable: false}))
+        }
+    });
 
 /**
  * Main component of the module.
@@ -69,7 +69,6 @@ export class SortableTableComponent implements OnChanges {
                 this.DB.setPagination(this.pagination.defaultOption || 20);
             }
             this.isFirstTime = true;
-            console.log(this.defaultSort);
             if (this.filterBySelect) {
                 this.fetchData(SortableEvents.FilterBySelect, {
                     value: this.filterBySelect.defaultOption,
@@ -93,15 +92,15 @@ export class SortableTableComponent implements OnChanges {
 
     public onSearchInputChanged = debounce(function ($event) {
         Observable
-          .of($event['target']['value'])
-          .map(inputVal => inputVal.replace(/\?!.#$[]/g, ''))
-          .first()
-          .subscribe(inputVal => {
-              this.fetchData(SortableEvents.FilterBySearch, {
-                  field: this.filterByInputValue.defaultField,
-                  value: inputVal
-              }, true);
-          })
+            .of($event['target']['value'])
+            .map(inputVal => inputVal.replace(/\?!.#$[]/g, ''))
+            .first()
+            .subscribe(inputVal => {
+                this.fetchData(SortableEvents.FilterBySearch, {
+                    field: this.filterByInputValue.defaultField,
+                    value: inputVal
+                }, true);
+            })
     }, 500);
 
     /**
@@ -179,19 +178,19 @@ export class SortableTableComponent implements OnChanges {
          */
 
         const requestStream = this.DB
-          .get(this.databaseDataPath, event, fieldToQueryBy)
-          .share()
-          .first();
+            .get(this.databaseDataPath, event, fieldToQueryBy)
+            .share()
+            .first();
 
         /**
          * This stream puts data to view
          */
 
         requestStream
-          .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
-          .do(() => this.isLoading = false)
-          .first()   //never lose the link to obj in order to save rendering process
-          .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
+            .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
+            .do(() => this.isLoading = false)
+            .first()   //never lose the link to obj in order to save rendering process
+            .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
 
         /**
          * Handle headers only once. When path to data in db changes.
@@ -201,8 +200,8 @@ export class SortableTableComponent implements OnChanges {
             const headers = this.setHeaders ? this.setHeaders(requestStream) : mapper(requestStream);
 
             headers
-              .first()
-              .subscribe((data: Array<HeaderItem>) => this.headers = data);
+                .first()
+                .subscribe((data: Array<HeaderItem>) => this.headers = data);
             this.isFirstTime = false;
         }
     }
@@ -214,9 +213,9 @@ export class SortableTableComponent implements OnChanges {
     public onInfinite(): void {
         if (this.pagination) {
             this.fetchData(
-              SortableEvents.InfiniteScroll,
-              null,
-              this.DB.lastEventHappened !== undefined
+                SortableEvents.InfiniteScroll,
+                null,
+                this.DB.lastEventHappened !== undefined
             );
         }
     }
