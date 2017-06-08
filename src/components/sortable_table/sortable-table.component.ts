@@ -1,7 +1,8 @@
 import {
     Component, OnChanges, Input, ViewChild, ViewEncapsulation, SimpleChange, SimpleChanges
 } from '@angular/core';
-import { SortableTableService, SortableEvents } from "../../services/sortable-table.service";
+import { DefaultSort, SortableEvents } from '../../models/index';
+import { SortableTableService } from "../../services/sortable-table.service";
 import { HeaderItem, TableFilter, Pagination, FieldToQueryBy, SetHeadersFunction, SearchString, TableItem } from "../../models/";
 import { Observable } from "rxjs";
 
@@ -14,13 +15,13 @@ const debounce = require('lodash.debounce');
  * @param data
  */
 const mapper = (data: Observable<{key: string, value : Array<any>}>) : Observable<Array<HeaderItem>> =>
-    data.map(({value}) => {
-        const keys = Object.keys(value);
-        if (keys.length) {
-            const data = value[Object.keys(value)[0]];
-            return Object.keys(data).map(key => ({name : key, sortable: false}))
-        }
-    });
+  data.map(({value}) => {
+      const keys = Object.keys(value);
+      if (keys.length) {
+          const data = value[Object.keys(value)[0]];
+          return Object.keys(data).map(key => ({name : key, sortable: false}))
+      }
+  });
 
 /**
  * Main component of the module.
@@ -42,6 +43,7 @@ export class SortableTableComponent implements OnChanges {
     @Input() public itemComponent: TableItem;
     @Input() public onChange: Function;
     @Input() public addNew: Component;
+    @Input() public defaultSort: DefaultSort | null;
     @ViewChild('searchString') public searchString;
     public isLoading: boolean = false;
     public data: Array<any> = [];
@@ -67,11 +69,15 @@ export class SortableTableComponent implements OnChanges {
                 this.DB.setPagination(this.pagination.defaultOption || 20);
             }
             this.isFirstTime = true;
+            console.log(this.defaultSort);
             if (this.filterBySelect) {
                 this.fetchData(SortableEvents.FilterBySelect, {
                     value: this.filterBySelect.defaultOption,
                     field: this.filterBySelect.field
                 }, true);
+            } else if (this.defaultSort) {
+                this.fieldToSortBy = this.defaultSort.config.field;
+                this.fetchData(this.defaultSort.event, this.defaultSort.config, true);
             } else {
                 this.fetchData();
             }
@@ -87,15 +93,15 @@ export class SortableTableComponent implements OnChanges {
 
     public onSearchInputChanged = debounce(function ($event) {
         Observable
-            .of($event['target']['value'])
-            .map(inputVal => inputVal.replace(/\?!.#$[]/g, ''))
-            .first()
-            .subscribe(inputVal => {
-                this.fetchData(SortableEvents.FilterBySearch, {
-                    field: this.filterByInputValue.defaultField,
-                    value: inputVal
-                }, true);
-            })
+          .of($event['target']['value'])
+          .map(inputVal => inputVal.replace(/\?!.#$[]/g, ''))
+          .first()
+          .subscribe(inputVal => {
+              this.fetchData(SortableEvents.FilterBySearch, {
+                  field: this.filterByInputValue.defaultField,
+                  value: inputVal
+              }, true);
+          })
     }, 500);
 
     /**
@@ -173,19 +179,19 @@ export class SortableTableComponent implements OnChanges {
          */
 
         const requestStream = this.DB
-            .get(this.databaseDataPath, event, fieldToQueryBy)
-            .share()
-            .first();
+          .get(this.databaseDataPath, event, fieldToQueryBy)
+          .share()
+          .first();
 
         /**
          * This stream puts data to view
          */
 
         requestStream
-            .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
-            .do(() => this.isLoading = false)
-            .first()   //never lose the link to obj in order to save rendering process
-            .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
+          .map(({key, value}) => Object.keys(value || {}).map(key => value[key]))
+          .do(() => this.isLoading = false)
+          .first()   //never lose the link to obj in order to save rendering process
+          .subscribe(arr => cleanUp ? this.data.splice(0, this.data.length, ...arr) : this.data.push(...arr));
 
         /**
          * Handle headers only once. When path to data in db changes.
@@ -195,8 +201,8 @@ export class SortableTableComponent implements OnChanges {
             const headers = this.setHeaders ? this.setHeaders(requestStream) : mapper(requestStream);
 
             headers
-                .first()
-                .subscribe((data: Array<HeaderItem>) => this.headers = data);
+              .first()
+              .subscribe((data: Array<HeaderItem>) => this.headers = data);
             this.isFirstTime = false;
         }
     }
@@ -208,9 +214,9 @@ export class SortableTableComponent implements OnChanges {
     public onInfinite(): void {
         if (this.pagination) {
             this.fetchData(
-                SortableEvents.InfiniteScroll,
-                null,
-                this.DB.lastEventHappened !== undefined
+              SortableEvents.InfiniteScroll,
+              null,
+              this.DB.lastEventHappened !== undefined
             );
         }
     }
