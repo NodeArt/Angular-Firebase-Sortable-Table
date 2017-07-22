@@ -5,9 +5,6 @@ import { tableConfig } from '../ngfb-table-config';
 
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/observable/fromEvent';
-
-
 @Component({
   selector: 'app-table-container',
   templateUrl: './table-container.component.html',

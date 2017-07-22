@@ -4,7 +4,7 @@ import { database } from 'firebase';
 
 @Component({
   selector: 'table-item',
-  template: '<div>item</div>',
+  templateUrl: './table-item.component.html',
   styles: [`
     div {
       color: red;
@@ -15,6 +15,9 @@ export class TableItemComponent implements ItemComponent, OnInit {
   @Input() ref: database.DataSnapshot;
   @Input() index: number;
 
+  private item: Object;
+
   ngOnInit() {
+    this.item = this.ref.val()
   }
 }
