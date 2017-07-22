@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 import { TableConfig } from '@nodeart/ngfb-sortable-table';
 import { tableConfig } from '../ngfb-table-config';
 
@@ -16,8 +16,13 @@ export class TableContainerComponent implements OnInit {
   public isSidenavOpen = true;
   public tableConfig: TableConfig = tableConfig;
   public sideNavItems: Array<{name: string, toFetch: string}>;
+  public path: null;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public route: ActivatedRoute) {
+    route.params.subscribe((params: Params) => {
+      this.path = params['param'];
+    });
+  }
 
   ngOnInit() {
     for (let i = 0, l = this.router.config.length; i < l; i++) {
@@ -25,6 +30,7 @@ export class TableContainerComponent implements OnInit {
         this.sideNavItems = this.router.config[i].data['tables'];
       }
     }
+
   }
 
   public ngAfterViewInit() {
