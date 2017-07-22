@@ -1,3 +1,7 @@
-<p>
-  {{item.age}} | {{item.name}}
-</p>
+<div><img [src]="imageUrl || ''" (load)="loadImg($event)"></div>
+<div>{{item.name}}</div>
+<div>{{item.country}}</div>
+<div>{{item.phone}}</div>
+<div>{{item.address}}</div>
+<div>{{item.lookingFor}}</div>
+<div>{{item.email}}</div>
