@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MdSidenavModule, MdButtonModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 import { NgFbSortableTableModule } from '@nodeart/ngfb-sortable-table';
 
@@ -10,6 +14,7 @@ import { initializeApp } from 'firebase';
 import { TableItemComponent } from './table-item/table-item.component';
 import { TableHeaderComponent } from './table-header/table-header.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
+import { TableContainerComponent } from './table-container/table-container.component';
 
 initializeApp({
   apiKey: 'AIzaSyBbKmIPEGoxk1PEOL4yctQmRpl14DQA9h0',
@@ -25,13 +30,19 @@ initializeApp({
     AppComponent,
     TableItemComponent,
     TableHeaderComponent,
-    TableFooterComponent
+    TableFooterComponent,
+    TableContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgFbSortableTableModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MdSidenavModule,
+    MdButtonModule,
+    MdToolbarModule,
+    MdIconModule,
+    NgFbSortableTableModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [

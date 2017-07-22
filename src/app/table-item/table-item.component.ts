@@ -16,6 +16,5 @@ export class TableItemComponent implements ItemComponent, OnInit {
   @Input() index: number;
 
   ngOnInit() {
-    console.log(this);
   }
 }

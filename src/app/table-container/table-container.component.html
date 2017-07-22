@@ -1,0 +1,28 @@
+<button md-mini-fab #toggler [color]="'primary'" class="toggle-sidenav" [class.open]="isSidenavOpen">
+  <md-icon *ngIf="isSidenavOpen">arrow_left</md-icon>
+  <md-icon *ngIf="!isSidenavOpen">arrow_right</md-icon>
+</button>
+<md-sidenav-container>
+  <md-sidenav #sidenav class="sidenav" opened="true" align="start" mode="side">
+    <md-toolbar color="secondary" class="sidenav-toolbar md-elevation-z2">
+      <div style="width: 100%; display: flex; justify-content: center; cursor: default; -webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">
+        <h4 style="color:white">NGFB Sortable Table Demo App</h4>
+      </div>
+    </md-toolbar>
+    <div class="sidenav-scrollbar-container" fxLayout="column">
+      <md-nav-list class="sidenav-list sidenav-toplevel">
+        <button md-raised-button
+                [color]="'accent'"
+                *ngFor="let item of sideNavItems"
+                [routerLink]="['/app', item.toFetch]"
+                routerLinkActive="active">{{item.name}}</button>
+        <span></span>
+        <button class="to-docs" md-raised-button
+                [color]="'warn'"
+                (click)="toDocs()">DOCS</button>
+      </md-nav-list>
+    </div>
+  </md-sidenav>
+
+  <ngfb-sortable-table [tableConfig]="tableConfig" [currentPath]="'employees'"></ngfb-sortable-table>
+</md-sidenav-container>
