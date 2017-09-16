@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import { NgFbSortableTableEventsService , EventConfig } from '../../../';
+import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'app-table-header',
   templateUrl: './table-header.component.html',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(NgFbSortableTableEventsService) private tableEvents: Subject<EventConfig>) {}
 
   ngOnInit() {
+    this.tableEvents.next({ event: '123' });
   }
 
 }

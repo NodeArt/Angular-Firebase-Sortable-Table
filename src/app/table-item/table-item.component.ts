@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemComponent } from '@nodeart/ngfb-sortable-table';
+import { ItemComponent } from '../../../';
 import { database } from 'firebase';
 
 @Component({

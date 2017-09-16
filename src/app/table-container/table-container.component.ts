@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, Params, ActivatedRoute } from '@angular/router';
-import { TableConfig } from '@nodeart/ngfb-sortable-table';
+import { TableConfig } from '../../../';
 import { tableConfig } from '../ngfb-table-config';
 
 import { Observable } from 'rxjs/Observable';

@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.ngfb-content {
+  display: table-row-group;
+  overflow-y: hidden;
+  width: 100%;
+}

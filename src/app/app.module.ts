@@ -7,24 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { NgFbSortableTableModule } from '../../';
 
-import { NgFbSortableTableModule } from '@nodeart/ngfb-sortable-table';
-
-import { initializeApp } from 'firebase';
 import { TableItemComponent } from './table-item/table-item.component';
 import { TableHeaderComponent } from './table-header/table-header.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
 import { TableContainerComponent } from './table-container/table-container.component';
 import { LoadingComponent } from './loading/loading.component';
-
-initializeApp({
-  apiKey: 'AIzaSyBbKmIPEGoxk1PEOL4yctQmRpl14DQA9h0',
-  authDomain: 'ngfb-sortable-table-demo.firebaseapp.com',
-  databaseURL: 'https://ngfb-sortable-table-demo.firebaseio.com',
-  projectId: 'ngfb-sortable-table-demo',
-  storageBucket: 'ngfb-sortable-table-demo.appspot.com',
-  messagingSenderId: '1061433697273'
-});
 
 @NgModule({
   declarations: [

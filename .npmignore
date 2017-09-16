@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+docs/
+src/
+e2e/
+npm-debug.log
+package/
+src/**/*.js
+src/**/*.map.js

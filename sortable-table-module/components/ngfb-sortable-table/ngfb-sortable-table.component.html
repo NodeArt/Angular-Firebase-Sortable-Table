@@ -1,0 +1,22 @@
+<ng-container *ngIf="currentConfig && currentConfig.loadingComponent && isLoading"
+              ngfbSortableContent
+              [component]="currentConfig.loadingComponent">
+</ng-container>
+<!-- HEADER -->
+<ng-container *ngIf="currentConfig && currentConfig.headerComponent"
+              ngfbSortableContent
+              [component]="currentConfig.headerComponent">
+</ng-container>
+<!-- CONTENT -->
+<section class="ngfb-content" ngfbInfiniteScroll (scrolled)="onInfinite()">
+    <ng-template *ngFor="let ref of data; let i = index; trackBy: trackByFn" ngfbSortableContent
+                 [component]="currentConfig.itemComponent"
+                 [index]="i"
+                 [ref]="ref">
+    </ng-template>
+</section>
+<!-- FOOTER -->
+<ng-container *ngIf="currentConfig && currentConfig.footerComponent"
+              ngfbSortableContent
+              [component]="currentConfig.footerComponent">
+</ng-container>
