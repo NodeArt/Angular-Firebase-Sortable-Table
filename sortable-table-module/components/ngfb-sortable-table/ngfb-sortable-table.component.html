@@ -9,7 +9,7 @@
 </ng-container>
 <!-- CONTENT -->
 <section class="ngfb-content" ngfbInfiniteScroll (scrolled)="onInfinite()">
-    <ng-template *ngFor="let ref of data; let i = index; trackBy: trackByFn" ngfbSortableContent
+    <ng-template *ngFor="let ref of data; let i = index;" ngfbSortableContent
                  [component]="currentConfig.itemComponent"
                  [index]="i"
                  [ref]="ref">

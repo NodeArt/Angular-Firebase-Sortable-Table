@@ -33,7 +33,23 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
     private service: NgFbSortableTableService,
     @Inject(NgFbSortableTableEventsService) private tableEvents: Subject<EventConfig>
   ) {
-    this.tableEvents.subscribe(this.onEvent.bind(this))
+    this.tableEvents.subscribe(({ event, data }) => {
+      console.log('onEvent!', event, data);
+      switch (event) {
+        case Events.AddItem:
+          break;
+        case Events.DeleteItem:
+          break;
+        case Events.InsertItem:
+          break;
+        case Events.FilterBySearch:
+          break;
+        case Events.FilterBySelect:
+          break;
+        case Events.SortByField:
+          break;
+      }
+    })
   }
 
   ngOnInit() {
@@ -103,26 +119,6 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
       //   }
       //   break;
       // }
-    }
-  }
-
-  public onEvent({ event, data }): void {
-    console.log('onEvent!', event, data);
-    switch (event) {
-      case Events.AddItem:
-        break;
-      case Events.DeleteItem:
-        break;
-      case Events.InsertItem:
-        break;
-      case Events.FilterBySearch:
-        break;
-      case Events.InfiniteScroll:
-        throw new ReferenceError('\'InfiniteScroll\' event is for internal usage only!');
-      case Events.FilterBySelect:
-        break;
-      case Events.SortByField:
-        break;
     }
   }
 }
