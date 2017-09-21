@@ -33,8 +33,8 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
     private service: NgFbSortableTableService,
     @Inject(NgFbSortableTableEventsService) private tableEvents: Subject<EventConfig>
   ) {
-    this.tableEvents.subscribe(({ event, data }) => {
-      console.log('onEvent!', event, data);
+    this.tableEvents.subscribe(({ event, config }) => {
+      console.log('onEvent!', event, config);
       switch (event) {
         case Events.AddItem:
           break;
@@ -47,6 +47,11 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
         case Events.FilterBySelect:
           break;
         case Events.SortByField:
+          this.fetchData(
+            Events.SortByField,
+            config,
+            this.service.lastEventHappened !== undefined
+          );
           break;
       }
     })

@@ -1,6 +1,7 @@
 /**
  * Events that could happen in NGFBSortableTable process
  */
+import { FieldToQueryBy } from './filter-to-query-by.interface';
 
 export enum Events {
     InfiniteScroll = 1,
@@ -14,5 +15,5 @@ export enum Events {
 
 export interface EventConfig {
     event: Events | string,
-    data?: any
+    config?: FieldToQueryBy
 }
