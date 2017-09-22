@@ -10,7 +10,9 @@ export enum Events {
     FilterBySelect,
     DeleteItem,
     InsertItem,
-    AddItem
+    AddItem,
+    LoadingStarted,
+    LoadingFinished
 }
 
 export interface EventConfig {

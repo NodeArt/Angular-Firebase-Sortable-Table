@@ -42,7 +42,6 @@ export interface PathConfig {
     itemComponent: Component;
     headerComponent?: Component;
     footerComponent?: Component;
-    loadingComponent?: Component;
     searchByString?: SearchString;
     selectFilter?: SelectFilter;
     pagination?: Pagination;

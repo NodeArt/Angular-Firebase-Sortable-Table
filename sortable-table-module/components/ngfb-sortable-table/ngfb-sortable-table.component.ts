@@ -1,6 +1,6 @@
 import {
   Component, Input, OnChanges, SimpleChanges, SimpleChange, ViewEncapsulation, Inject,
-  OnInit
+  OnInit, EventEmitter, Output
 } from '@angular/core';
 import { database } from 'firebase';
 import { TableConfig, PathConfig } from '../../models';
@@ -25,6 +25,7 @@ import 'rxjs/add/operator/do';
 export class NgFbSortableTableComponent implements OnInit, OnChanges {
   @Input() public tableConfig: TableConfig;
   @Input() public currentPath: string;
+  @Output() public onEvent: EventEmitter<EventConfig> = new EventEmitter();
   public currentConfig: PathConfig;
   public data: Array<database.DataSnapshot> = [];
   public isLoading = false;
@@ -33,9 +34,10 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
     private service: NgFbSortableTableService,
     @Inject(NgFbSortableTableEventsService) private tableEvents: Subject<EventConfig>
   ) {
-    this.tableEvents.subscribe(({ event, config }) => {
-      console.log('onEvent!', event, config);
-      switch (event) {
+    this.tableEvents.subscribe(data => {
+      this.onEvent.emit(data);
+      console.log('onEvent!', data);
+      switch (data.event) {
         case Events.AddItem:
           break;
         case Events.DeleteItem:
@@ -49,7 +51,7 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
         case Events.SortByField:
           this.fetchData(
             Events.SortByField,
-            config,
+            data.config,
             this.service.lastEventHappened !== undefined
           );
           break;
@@ -75,16 +77,23 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
   }
 
   private fetchData(event?: number, fieldToQueryBy?: FieldToQueryBy, cleanUp?: boolean): void {
+    this.onEvent.emit({
+      event: Events.LoadingStarted
+    });
     this.isLoading = true;
     this.reset(event);
     this.service
       .get(this.currentPath, event, fieldToQueryBy)
       .first()
-      .do(() => this.isLoading = false)
       .subscribe(arr => {
         cleanUp ?
           this.data.splice(0, this.data.length, ...arr) :
           this.data.push(...arr);
+      }, null, () => {
+        this.isLoading = false;
+        this.onEvent.emit({
+          event: Events.LoadingFinished
+        });
       });
   }
 
@@ -101,29 +110,29 @@ export class NgFbSortableTableComponent implements OnInit, OnChanges {
 
   private reset(nextEvent): void {
     switch (nextEvent) {
-      // case Events.FilterBySearch : {
-      //   this.currentConfig.fieldToSortBy = '';
-      //   if (this.filterBySelect) {
-      //     this.filterBySelect.defaultOption = this.filterBySelect.resetTo;
-      //   }
-      //   break;
-      // }
-      // case Events.FilterBySelect: {
-      //   this.fieldToSortBy = '';
-      //   if (this.filterByInputValue && this.searchString) {
-      //     this.searchString['nativeElement'].value = '';
-      //   }
-      //   break;
-      // }
-      // case Events.SortByField : {
-      //   if (this.filterBySelect) {
-      //     this.filterBySelect.defaultOption = this.filterBySelect.resetTo;
-      //   }
-      //   if (this.filterByInputValue && this.searchString) {
-      //     this.searchString['nativeElement'].value = '';
-      //   }
-      //   break;
-      // }
+      case Events.FilterBySearch : {
+        // this.currentConfig.fieldToSortBy = '';
+        // if (this.filterBySelect) {
+        //   this.filterBySelect.defaultOption = this.filterBySelect.resetTo;
+        // }
+        break;
+      }
+      case Events.FilterBySelect: {
+        // this.fieldToSortBy = '';
+        // if (this.filterByInputValue && this.searchString) {
+        //   this.searchString['nativeElement'].value = '';
+        // }
+        break;
+      }
+      case Events.SortByField : {
+        // if (this.filterBySelect) {
+        //   this.filterBySelect.defaultOption = this.filterBySelect.resetTo;
+        // }
+        // if (this.filterByInputValue && this.searchString) {
+        //   this.searchString['nativeElement'].value = '';
+        // }
+        break;
+      }
     }
   }
 }

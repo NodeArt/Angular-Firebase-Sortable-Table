@@ -1,6 +1,5 @@
-import { InjectionToken } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { InjectionToken, EventEmitter } from '@angular/core';
 import { EventConfig } from '../../index';
 
-export const NgFbSortableTableEventsService = new InjectionToken<Subject<EventConfig>>('NgFbSortableTableEventsService');
-export const diValue = new Subject();
+export const NgFbSortableTableEventsService = new InjectionToken<EventEmitter<EventConfig>>('NgFbSortableTableEventsService');
+export const diValue = new EventEmitter();
