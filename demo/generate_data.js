@@ -1,14 +1,10 @@
 "use strict";
 const firebase = require('firebase');
 const Chance = require('chance');
-const config = {
-  apiKey: "AIzaSyBbKmIPEGoxk1PEOL4yctQmRpl14DQA9h0",
-  authDomain: "ngfb-sortable-table-demo.firebaseapp.com",
-  databaseURL: "https://ngfb-sortable-table-demo.firebaseio.com",
-  projectId: "ngfb-sortable-table-demo",
-  storageBucket: "ngfb-sortable-table-demo.appspot.com",
-  messagingSenderId: "1061433697273"
-};
+const config = JSON.parse(require('fs').readFileSync('fb_config.json'));
+
+console.log(config);
+
 firebase.initializeApp(config);
 
 const DB = firebase.database();

@@ -6,3 +6,4 @@ demo/dist/
 npm_debug.log
 package/
 src/**/*.js
+/demo/fb_config.json
